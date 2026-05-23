@@ -18,6 +18,14 @@ const baseStreamers = [
     link: "https://www.twitch.tv/cartaxo2720"
   },
   {
+    name: "Franciscop",
+    platform: "Twitch",
+    game: "Minecraft Survival",
+    twitch: "chicodascouves2212",
+    avatar: "https://static-cdn.jtvnw.net/jtv_user_pictures/cc5c2048-de71-4f54-9173-e383c705fa47-profile_image-70x70.png", // 👈 COLE AQUI O LINK DO PNG
+    link: "https://www.twitch.tv/chicodascouves2212"
+  },
+  {
     name: "Feromonas",
     platform: "Twitch",
     game: "Minecraft Mods",
