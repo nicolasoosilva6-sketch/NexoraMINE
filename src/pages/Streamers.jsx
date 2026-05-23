@@ -22,7 +22,7 @@ const baseStreamers = [
     platform: "Twitch",
     game: "Minecraft Survival",
     twitch: "chicodascouves2212",
-    avatar: "https://static-cdn.jtvnw.net/jtv_user_pictures/cc5c2048-de71-4f54-9173-e383c705fa47-profile_image-70x70.png", // 👈 COLE AQUI O LINK DO PNG
+    avatar: "https://static-cdn.jtvnw.net/jtv_user_pictures/7de856f0-fd01-4c93-b03a-00122a913bcf-profile_image-70x70.jpeg", // 👈 COLE AQUI O LINK DO PNG
     link: "https://www.twitch.tv/chicodascouves2212"
   },
   {
