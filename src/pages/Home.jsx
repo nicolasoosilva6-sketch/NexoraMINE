@@ -34,7 +34,7 @@ export default function Home() {
             </a>
 
             <a href="/servers" style={secondaryBtn}>
-              Servidores PT
+              Servidores
             </a>
 
           </div>
