@@ -1,83 +1,123 @@
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html{
-  scroll-behavior:smooth;
+html {
+  scroll-behavior: smooth;
 }
 
-body{
-  background:#050816;
-  color:white;
-  font-family:Arial,sans-serif;
-  overflow-x:hidden;
+body {
+  position: relative;
+  background: #050816;
+  color: white;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
 }
 
-/* Fundo */
-body::before{
-  content:'';
-  position:fixed;
-  inset:0;
+/* 🌈 Fundo glow */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
   background:
-    radial-gradient(circle at top left, rgba(168,85,247,0.15), transparent 30%),
-    radial-gradient(circle at bottom right, rgba(59,130,246,0.15), transparent 30%);
-  z-index:-2;
+    radial-gradient(circle at top left, rgba(168,85,247,0.18), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(59,130,246,0.18), transparent 35%);
+  z-index: -2;
 }
 
-/* Grid */
-body::after{
-  content:'';
-  position:fixed;
-  inset:0;
+/* 🔳 Grid moderno */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
   background-image:
     linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-  background-size:40px 40px;
-  z-index:-1;
+  background-size: 40px 40px;
+  z-index: -1;
 }
 
-.glass{
-  background:rgba(255,255,255,0.05);
-  backdrop-filter:blur(12px);
-  border:1px solid rgba(255,255,255,0.08);
+/* ✨ Glass effect */
+.glass {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
-.neon{
+/* 💜 Neon glow */
+.neon {
   box-shadow:
-    0 0 10px rgba(168,85,247,.4),
-    0 0 25px rgba(59,130,246,.2);
+    0 0 10px rgba(168,85,247,0.4),
+    0 0 25px rgba(59,130,246,0.25);
 }
 
-.hover-glow{
-  transition:0.3s;
+/* ⬆️ Hover animation */
+.hover-glow {
+  transition: 0.25s ease;
 }
 
-.hover-glow:hover{
-  transform:translateY(-5px);
+.hover-glow:hover {
+  transform: translateY(-5px);
 }
 
-.btn-primary{
-  background:linear-gradient(90deg,#7c3aed,#2563eb);
-  padding:14px 28px;
-  border-radius:16px;
-  border:none;
-  color:white;
-  font-weight:bold;
-  cursor:pointer;
+/* 🔘 Button moderno */
+.btn-primary {
+  background: linear-gradient(90deg,#7c3aed,#2563eb);
+  padding: 14px 28px;
+  border-radius: 16px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
-a{
-  color:white;
-  text-decoration:none;
+.btn-primary:hover {
+  transform: scale(1.05);
 }
 
-::-webkit-scrollbar{
-  width:8px;
+/* 🔗 Links */
+a {
+  color: white;
+  text-decoration: none;
 }
 
-::-webkit-scrollbar-thumb{
-  background:#7c3aed;
-  border-radius:999px;
+/* 🧭 Scrollbar bonita */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #7c3aed;
+  border-radius: 999px;
+}
+
+/* 🎮 Entrada de cards */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🎮 Badge game animation */
+@keyframes pulseGame {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(168,85,247,0);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 12px rgba(168,85,247,0.4);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(168,85,247,0);
+  }
 }

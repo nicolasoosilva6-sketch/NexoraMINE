@@ -9,20 +9,153 @@ const servers = [
     image: "https://api.mcsrvstat.us/icon/mc.lusiadascraft.com"
   },
   {
-    name: "CaldasCraft",
-    ip: "mc.caldascraft.eu",
-    version: "1.20.4",
-    gamemode: "Economy Survival",
-    image: "https://api.mcsrvstat.us/icon/mc.caldascraft.eu"
+    name: "Hypixel",
+    ip: "mc.hypixel.net",
+    version: "1.21",
+    gamemode: "BedWars & SkyWars",
+    image: "https://api.mcsrvstat.us/icon/mc.hypixel.net"
   },
   {
-    name: "KabuCraft",
-    ip: "mc.kabucraft.net",
-    version: "1.20.1",
-    gamemode: "PvP Survival",
-    image: "https://api.mcsrvstat.us/icon/mc.kabucraft.net"
+    name: "Donut SMP",
+    ip: "donutsmp.net",
+    version: "1.21",
+    gamemode: "SMP",
+    image: "https://api.mcsrvstat.us/icon/donutsmp.net"
+  },
+  {
+    name: "Hoplite",
+    ip: "hoplite.gg",
+    version: "1.21",
+    gamemode: "Battle Royale",
+    image: "https://api.mcsrvstat.us/icon/hoplite.gg"
+  },
+  {
+    name: "ManaCube",
+    ip: "play.manacube.com",
+    version: "1.21",
+    gamemode: "Survival & Parkour",
+    image: "https://api.mcsrvstat.us/icon/play.manacube.com"
+  },
+  {
+    name: "JartexNetwork",
+    ip: "play.jartexnetwork.com",
+    version: "1.21",
+    gamemode: "Skyblock & Lifesteal",
+    image: "https://api.mcsrvstat.us/icon/play.jartexnetwork.com"
+  },
+  {
+    name: "PikaNetwork",
+    ip: "play.pika-network.net",
+    version: "1.21",
+    gamemode: "Practice PvP",
+    image: "https://api.mcsrvstat.us/icon/play.pika-network.net"
+  },
+  {
+    name: "Complex Gaming",
+    ip: "hub.mc-complex.com",
+    version: "1.21",
+    gamemode: "Pixelmon",
+    image: "https://api.mcsrvstat.us/icon/hub.mc-complex.com"
+  },
+  {
+    name: "MineBerry",
+    ip: "play.mineberry.org",
+    version: "1.21",
+    gamemode: "Earth SMP",
+    image: "https://api.mcsrvstat.us/icon/play.mineberry.org"
+  },
+  {
+    name: "BlocksMC",
+    ip: "play.blocksmc.com",
+    version: "1.21",
+    gamemode: "BedWars",
+    image: "https://api.mcsrvstat.us/icon/play.blocksmc.com"
+  },
+  {
+    name: "MCHub",
+    ip: "mchub.com",
+    version: "1.21",
+    gamemode: "Prison & Skyblock",
+    image: "https://api.mcsrvstat.us/icon/mchub.com"
+  },
+  {
+    name: "Purple Prison",
+    ip: "purpleprison.net",
+    version: "1.21",
+    gamemode: "Prison",
+    image: "https://api.mcsrvstat.us/icon/purpleprison.net"
+  },
+  {
+    name: "FadeCloud",
+    ip: "fadecloud.com",
+    version: "1.21",
+    gamemode: "Skyblock",
+    image: "https://api.mcsrvstat.us/icon/fadecloud.com"
+  },
+  {
+    name: "MineCadia",
+    ip: "play.minecadia.com",
+    version: "1.21",
+    gamemode: "Factions",
+    image: "https://api.mcsrvstat.us/icon/play.minecadia.com"
+  },
+  {
+    name: "Vulengate",
+    ip: "mc.vulengate.com",
+    version: "1.21",
+    gamemode: "MMORPG",
+    image: "https://api.mcsrvstat.us/icon/mc.vulengate.com"
+  },
+  {
+    name: "InsanityCraft",
+    ip: "play.insanitycraft.net",
+    version: "1.21",
+    gamemode: "Survival",
+    image: "https://api.mcsrvstat.us/icon/play.insanitycraft.net"
+  },
+  {
+    name: "Wild Prison",
+    ip: "play.wildprison.net",
+    version: "1.21",
+    gamemode: "Prison",
+    image: "https://api.mcsrvstat.us/icon/play.wildprison.net"
+  },
+  {
+    name: "MineSuperior",
+    ip: "hub.mcs.gg",
+    version: "1.21",
+    gamemode: "Survival",
+    image: "https://api.mcsrvstat.us/icon/hub.mcs.gg"
+  },
+  {
+  name: "BlossomCraft",
+  ip: "play.blossomcraft.org",
+  version: "1.21",
+  gamemode: "Survival & Skyblock",
+  image: "https://api.mcsrvstat.us/icon/play.blossomcraft.org"
+  },
+  {
+    name: "AkumaMC",
+    ip: "play.akumamc.net",
+    version: "1.21",
+    gamemode: "Prison",
+    image: "https://api.mcsrvstat.us/icon/play.akumamc.net"
+  },
+  {
+    name: "CubeCraft",
+    ip: "play.cubecraft.net",
+    version: "1.21",
+    gamemode: "EggWars",
+    image: "https://api.mcsrvstat.us/icon/play.cubecraft.net"
+  },
+  {
+    name: "Minemen Club",
+    ip: "minemen.club",
+    version: "1.21",
+    gamemode: "PvP Practice",
+    image: "https://api.mcsrvstat.us/icon/minemen.club"
   }
-]
+];
 
 export default function Servers() {
 
@@ -37,26 +170,42 @@ export default function Servers() {
     try {
       const res = await fetch(`https://api.mcsrvstat.us/2/${ip}`)
       const json = await res.json()
-      return json.players?.online ?? 0
+
+      return {
+        online: json.players?.online ?? 0,
+        status: json.online ?? false
+      }
+
     } catch {
-      return 0
+      return {
+        online: 0,
+        status: false
+      }
     }
   }
 
   useEffect(() => {
 
     async function load() {
+
       const updated = await Promise.all(
-        servers.map(async (s) => ({
-          ...s,
-          players: await getPlayers(s.ip)
-        }))
+        servers.map(async (s) => {
+
+          const info = await getPlayers(s.ip)
+
+          return {
+            ...s,
+            players: info.online,
+            status: info.status
+          }
+        })
       )
 
       setData(updated)
     }
 
     load()
+
     const interval = setInterval(load, 30000)
 
     return () => clearInterval(interval)
@@ -67,10 +216,26 @@ export default function Servers() {
 
     <div style={page}>
 
-      {/* TITULO */}
-      <h1 style={title}>
-        Servidores Tugas
-      </h1>
+      {/* BG */}
+      <div style={bgGlow}></div>
+
+      {/* TITLE */}
+      <div style={topSection}>
+
+        <p style={mini}>
+          SERVIDORES 
+        </p>
+
+        <h1 style={title}>
+          Servidores
+        </h1>
+
+        <p style={subtitle}>
+          Descobre servidores de Minecraft,
+          comunidades gaming e experiências survival.
+        </p>
+
+      </div>
 
       {/* GRID */}
       <div style={grid}>
@@ -79,29 +244,55 @@ export default function Servers() {
 
           <div key={i} style={card}>
 
-            {/* HEADER IMAGE */}
+            {/* IMAGE */}
             <div style={imageBox}>
 
-              <img src={s.image} style={img} />
+              <div style={imageGlow}></div>
 
-              <div style={online}>
-                ONLINE
+              <img
+                src={s.image}
+                alt={s.name}
+                style={img}
+              />
+
+              <div
+                style={{
+                  ...online,
+                  background: s.status ? "#22c55e" : "#ef4444"
+                }}
+              >
+                {s.status ? "ONLINE" : "OFFLINE"}
               </div>
 
             </div>
 
             {/* CONTENT */}
-            <div style={{ padding: 25 }}>
+            <div style={content}>
 
-              <h2 style={name}>{s.name}</h2>
+              <h2 style={name}>
+                {s.name}
+              </h2>
 
-              <p style={gamemode}>{s.gamemode}</p>
+              <p style={gamemode}>
+                {s.gamemode}
+              </p>
 
-              <div style={box}>🌍 {s.ip}</div>
-              <div style={box}>⚡ {s.version}</div>
-              <div style={box}>👥 {s.players} online</div>
+              <div style={box}>
+                🌍 {s.ip}
+              </div>
 
-              <button onClick={() => copyIP(s.ip)} style={button}>
+              <div style={box}>
+                ⚡ {s.version}
+              </div>
+
+              <div style={box}>
+                👥 {s.players} online
+              </div>
+
+              <button
+                onClick={() => copyIP(s.ip)}
+                style={button}
+              >
                 Copiar IP
               </button>
 
@@ -122,89 +313,182 @@ export default function Servers() {
 ========================= */
 
 const page = {
-  padding: "40px",
+  position: "relative",
   minHeight: "100vh",
-  background: "#0b0f19",
+  padding: "50px",
+  background: "#070b14",
   color: "white",
-  fontFamily: "system-ui"
+  overflow: "hidden",
+  fontFamily: "Inter, sans-serif"
+}
+
+const bgGlow = {
+  position: "absolute",
+  top: "-300px",
+  right: "-200px",
+
+  width: "800px",
+  height: "800px",
+
+  background: "rgba(168,85,247,0.12)",
+
+  filter: "blur(150px)",
+
+  borderRadius: "999px"
+}
+
+const topSection = {
+  position: "relative",
+  zIndex: 2,
+  marginBottom: "60px"
+}
+
+const mini = {
+  color: "#a855f7",
+  fontWeight: "800",
+  letterSpacing: "2px",
+  marginBottom: "18px"
 }
 
 const title = {
-  fontSize: "70px",
+  fontSize: "78px",
   fontWeight: "900",
-  marginBottom: "50px",
-  background: "linear-gradient(90deg,#a855f7,#9333ea)",
+  marginBottom: "20px",
+
+  background: "linear-gradient(90deg,#ffffff,#d8b4fe)",
   WebkitBackgroundClip: "text",
   WebkitTextFillColor: "transparent"
 }
 
+const subtitle = {
+  color: "#9ca3af",
+  fontSize: "20px",
+  maxWidth: "700px",
+  lineHeight: 1.8
+}
+
 const grid = {
+  position: "relative",
+  zIndex: 2,
+
   display: "grid",
   gridTemplateColumns: "repeat(auto-fit,minmax(340px,1fr))",
-  gap: "30px"
+  gap: "32px"
 }
 
 const card = {
-  borderRadius: "30px",
-  overflow: "hidden",
-  background: "#111827",
+  background: "rgba(17,24,39,0.78)",
 
-  border: "1px solid rgba(168, 85, 247, 0.6)",
-  boxShadow: "0 0 15px rgba(168, 85, 247, 0.4), 0 0 40px rgba(168, 85, 247, 0.2)"
+  borderRadius: "32px",
+
+  overflow: "hidden",
+
+  border: "1px solid rgba(168,85,247,0.20)",
+
+  boxShadow:
+    "0 0 25px rgba(168,85,247,0.12)"
 }
 
 const imageBox = {
-  height: "230px",
-  background: "linear-gradient(135deg,#111827,#1e293b)",
+  position: "relative",
+
+  height: "240px",
+
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  position: "relative"
+
+  background:
+    "linear-gradient(135deg,#111827,#1e293b)",
+
+  overflow: "hidden"
+}
+
+const imageGlow = {
+  position: "absolute",
+
+  width: "240px",
+  height: "240px",
+
+  background: "rgba(168,85,247,0.16)",
+
+  filter: "blur(70px)",
+
+  borderRadius: "999px"
 }
 
 const img = {
+  position: "relative",
+  zIndex: 2,
+
   width: "130px",
   height: "130px",
+
   imageRendering: "pixelated"
 }
 
 const online = {
   position: "absolute",
-  top: "15px",
-  right: "15px",
-  background: "#22c55e",
+  top: "16px",
+  right: "16px",
+
   padding: "8px 14px",
+
   borderRadius: "999px",
-  fontWeight: "bold",
-  fontSize: "12px"
+
+  fontWeight: "800",
+  fontSize: "12px",
+
+  color: "white"
+}
+
+const content = {
+  padding: "28px"
 }
 
 const name = {
   fontSize: "34px",
   fontWeight: "900",
-  marginBottom: "10px"
+  marginBottom: "12px"
 }
 
 const gamemode = {
   color: "#a855f7",
-  marginBottom: "20px",
-  fontWeight: "bold"
+  marginBottom: "22px",
+  fontWeight: "800"
 }
 
 const box = {
   background: "#0f172a",
-  padding: "14px",
-  borderRadius: "16px",
-  marginBottom: "12px"
+
+  padding: "15px",
+
+  borderRadius: "18px",
+
+  marginBottom: "14px",
+
+  border: "1px solid rgba(255,255,255,0.04)"
 }
 
 const button = {
   width: "100%",
-  background: "#2563eb",
+
+  marginTop: "10px",
+
+  background:
+    "linear-gradient(90deg,#2563eb,#3b82f6)",
+
   color: "white",
-  padding: "12px",
-  borderRadius: "12px",
-  fontWeight: "700",
+
+  padding: "15px",
+
+  borderRadius: "16px",
+
+  fontWeight: "800",
+
   border: "none",
-  cursor: "pointer"
+
+  cursor: "pointer",
+
+  fontSize: "15px"
 }

@@ -1,225 +1,301 @@
+import { useState } from "react"
+
 export default function Guides() {
+  const [tab, setTab] = useState("platforms")
+
   return (
-    <div style={page}>
+    <div className="page">
 
       {/* HEADER */}
-      <div style={header}>
-        <h1>📘 Guias Completos de Streaming</h1>
-        <p style={sub}>
-          Tudo o que precisas para começares, configurando tudo como um streamer a sério
-        </p>
+      <div className="header">
+        <h1> Streamer Control Panel</h1>
+        <p>Dashboard completo para crescimento real no streaming</p>
       </div>
 
-      {/* 1 PLATFORM */}
-      <div style={card}>
-        <h2>🌐 1. Plataformas de streaming</h2>
-
-        <p>Estas são as principais plataformas onde podes fazer live:</p>
-
-        <ul style={list}>
-          <li><b>Twitch</b> — melhor para gaming e comunidade</li>
-          <li><b>YouTube Live</b> — bom para crescer com vídeos + lives</li>
-          <li><b>Kick</b> — menos concorrência, crescimento mais fácil</li>
-        </ul>
-
-        <p>
-          👉 Recomendação: começa na Twitch.
-        </p>
+      {/* NAV TABS */}
+      <div className="tabs">
+        <Tab label="🌐 Plataformas" active={tab==="platforms"} onClick={()=>setTab("platforms")} />
+        <Tab label="🎥 OBS Setup" active={tab==="obs"} onClick={()=>setTab("obs")} />
+        <Tab label="🤖 Bots" active={tab==="bots"} onClick={()=>setTab("bots")} />
+        <Tab label="🎤 Áudio" active={tab==="audio"} onClick={()=>setTab("audio")} />
+        <Tab label="📈 Crescimento" active={tab==="growth"} onClick={()=>setTab("growth")} />
       </div>
 
-      {/* 2 OBS */}
-      <div style={card}>
-        <h2>🎥 2. OBS Studio (setup completo)</h2>
+      {/* CONTENT */}
+      <div className="panel">
 
-        <p>O OBS é o programa principal para fazer streams.</p>
+        {/* PLATAFORMAS */}
+        {tab === "platforms" && (
+          <div className="grid">
 
-        <ul style={list}>
-          <li>Download: obsproject.com</li>
-          <li>Resolution: 1920x1080 ou 1280x720</li>
-          <li>FPS: 60 se o PC aguentar</li>
-          <li>Encoder: hardware (NVENC recomendado)</li>
-          <li>Bitrate: 4500–6000</li>
-        </ul>
+            <Card title="Twitch">
+              <Item>Streaming principal gaming</Item>
+              <Item>Subs + Bits monetização</Item>
+              <Item>Chat ativo em tempo real</Item>
+              <Item>Raid + community growth</Item>
+              <Item>Emotes personalizados</Item>
+              <Item>Extensões interativas</Item>
+              <Item>Categoria Minecraft forte</Item>
+            </Card>
 
-        <p>
-          🔥 Dica: usa “Game Capture” para jogos (mais leve e melhor qualidade).
-        </p>
+            <Card title="YouTube Live">
+              <Item>Long-term growth</Item>
+              <Item>Integra Shorts + vídeos</Item>
+              <Item>SEO ajuda descoberta</Item>
+              <Item>Lives ficam gravadas</Item>
+              <Item>Monetização ads</Item>
+              <Item>Comunidade estável</Item>
+              <Item>Ideal para conteúdo híbrido</Item>
+            </Card>
+
+            <Card title="Kick / TikTok / Outros">
+              <Item>Kick: menos concorrência</Item>
+              <Item>TikTok: crescimento viral</Item>
+              <Item>Facebook Gaming: nicho casual</Item>
+              <Item>Trovo: público gaming</Item>
+              <Item>Restream: multi-stream</Item>
+              <Item>OBS multi output</Item>
+              <Item>Expande alcance global</Item>
+            </Card>
+
+          </div>
+        )}
+
+        {/* OBS */}
+        {tab === "obs" && (
+          <div className="grid">
+
+            <Card title="Video Setup">
+              <Item>1080p 60fps ideal</Item>
+              <Item>720p se PC fraco</Item>
+              <Item>Bitrate 6000–8000</Item>
+              <Item>Encoder NVENC (NVIDIA)</Item>
+              <Item>FPS constante sem drops</Item>
+              <Item>Game Capture recomendado</Item>
+              <Item>Scenes organizadas</Item>
+            </Card>
+
+            <Card title="Scenes (Essencial)">
+              <Item>Starting Soon</Item>
+              <Item>Live Scene</Item>
+              <Item>BRB (afk)</Item>
+              <Item>Ending Screen</Item>
+              <Item>Just Chatting</Item>
+              <Item>Game Scene</Item>
+              <Item>Intermission</Item>
+            </Card>
+
+            <Card title="Performance">
+              <Item>CPU load controlado</Item>
+              <Item>Evitar browser sources pesadas</Item>
+              <Item>Reduz overlays pesados</Item>
+              <Item>Teste antes de live</Item>
+              <Item>Monitorização FPS</Item>
+              <Item>Audio sync correto</Item>
+              <Item>Stable bitrate</Item>
+            </Card>
+
+          </div>
+        )}
+
+        {/* BOTS */}
+        {tab === "bots" && (
+          <div className="grid">
+
+            <Card title="Bots principais">
+              <Item>Nightbot simples</Item>
+              <Item>StreamElements completo</Item>
+              <Item>Moobot leve</Item>
+              <Item>Moderação automática</Item>
+              <Item>Spam protection</Item>
+              <Item>Timers automáticos</Item>
+              <Item>Chat commands</Item>
+            </Card>
+
+            <Card title="Comandos úteis">
+              <Item>!discord</Item>
+              <Item>!socials</Item>
+              <Item>!live</Item>
+              <Item>!setup</Item>
+              <Item>!sens</Item>
+              <Item>!rank</Item>
+              <Item>!commands</Item>
+            </Card>
+
+            <Card title="Engagement">
+              <Item>Polls no chat</Item>
+              <Item>Giveaways automáticos</Item>
+              <Item>Alerts no chat</Item>
+              <Item>Auto messages</Item>
+              <Item>Viewer interaction</Item>
+              <Item>Cooldown commands</Item>
+              <Item>Community events</Item>
+            </Card>
+
+          </div>
+        )}
+
+        {/* AUDIO */}
+        {tab === "audio" && (
+          <div className="grid">
+
+            <Card title="Microfone">
+              <Item>Noise suppression</Item>
+              <Item>Compressor ativo</Item>
+              <Item>Noise gate setup</Item>
+              <Item>Gain equilibrado</Item>
+              <Item>Sem eco na sala</Item>
+              <Item>Mic cardioid recomendado</Item>
+              <Item>Teste antes de live</Item>
+            </Card>
+
+            <Card title="Mix de som">
+              <Item>Game volume mais baixo</Item>
+              <Item>Voice prioridade</Item>
+              <Item>Music controlada</Item>
+              <Item>No clipping audio</Item>
+              <Item>Separate tracks OBS</Item>
+              <Item>EQ leve na voz</Item>
+              <Item>Monitoramento headset</Item>
+            </Card>
+
+          </div>
+        )}
+
+        {/* GROWTH */}
+        {tab === "growth" && (
+          <div className="grid">
+
+            <Card title="Conteúdo diário">
+              <Item>TikTok clips todos os dias</Item>
+              <Item>YouTube Shorts</Item>
+              <Item>Clips engraçados</Item>
+              <Item>Momentos clutch</Item>
+              <Item>Highlights da live</Item>
+              <Item>Trending sounds</Item>
+              <Item>Consistency total</Item>
+            </Card>
+
+            <Card title="Estratégia real">
+              <Item>3–6 streams por semana</Item>
+              <Item>Horários fixos</Item>
+              <Item>Interagir SEMPRE</Item>
+              <Item>Collabs com outros streamers</Item>
+              <Item>Comunidade Discord</Item>
+              <Item>Reutilizar conteúdo</Item>
+              <Item>Não parar mesmo sem viewers</Item>
+            </Card>
+
+          </div>
+        )}
+
       </div>
 
-      {/* 3 BOTS */}
-      <div style={card}>
-        <h2>🤖 3. Bots para chat (essencial)</h2>
+      {/* STYLE */}
+      <style>{`
+        body {
+          margin: 0;
+          background: #0b0f19;
+          color: white;
+          font-family: system-ui;
+        }
 
-        <p>Os bots ajudam a automatizar o chat e criar comandos.</p>
+        .page {
+          max-width: 1100px;
+          margin: auto;
+          padding: 30px;
+        }
 
-        <ul style={list}>
-          <li><b>Nightbot</b> — simples e rápido</li>
-          <li><b>StreamElements</b> — mais completo</li>
-          <li><b>Moobot</b> — alternativo leve</li>
-        </ul>
+        .header h1 {
+          font-size: 34px;
+          background: linear-gradient(90deg,#a855f7,#3b82f6);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
 
-        <p>
-          Usos:
-        </p>
+        .tabs {
+          display: flex;
+          gap: 10px;
+          margin: 20px 0;
+          flex-wrap: wrap;
+        }
 
-        <ul style={list}>
-          <li>Comandos (!discord, !socials)</li>
-          <li>Auto mensagens no chat</li>
-          <li>Moderação automática</li>
-        </ul>
-      </div>
+        .tabs button {
+          background: #111827;
+          color: white;
+          border: 1px solid #2b2f3a;
+          padding: 10px 14px;
+          border-radius: 12px;
+          cursor: pointer;
+          transition: 0.2s;
+        }
 
-      {/* 4 OVERLAYS */}
-      <div style={card}>
-        <h2>🖼️ 4. Overlays (design da stream)</h2>
+        .tabs button:hover {
+          transform: translateY(-2px);
+          border-color: #a855f7;
+        }
 
-        <p>Overlays são o visual da tua stream.</p>
+        .panel {
+          background: #111827;
+          padding: 16px;
+          border-radius: 16px;
+        }
 
-        <ul style={list}>
-          <li><b>StreamElements</b> — overlays grátis</li>
-          <li><b>OWN3D</b> — overlays premium</li>
-          <li><b>Canva</b> — personalização simples</li>
-        </ul>
+        .grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+          gap: 12px;
+        }
 
-        <p>
-          🔥 Usa sempre overlays simples — não compliques.
-        </p>
-      </div>
+        .card {
+          background: #0b0f19;
+          padding: 14px;
+          border-radius: 14px;
+          border: 1px solid #1f2937;
+          transition: 0.2s;
+        }
 
-      {/* 5 ALERTS */}
-      <div style={card}>
-        <h2>🔔 5. Alerts (seguidores / subs)</h2>
+        .card:hover {
+          transform: scale(1.02);
+          border-color: #3b82f6;
+        }
 
-        <p>Alerts são as notificações na stream:</p>
-
-        <ul style={list}>
-          <li>Follow alert</li>
-          <li>Donation alert</li>
-          <li>Subscription alert</li>
-        </ul>
-
-        <p>
-          Ferramentas:
-        </p>
-
-        <ul style={list}>
-          <li>StreamElements (recomendado)</li>
-          <li>Streamlabs</li>
-        </ul>
-      </div>
-
-      {/* 6 AUDIO */}
-      <div style={card}>
-        <h2>🎤 6. Áudio (MUITO importante)</h2>
-
-        <ul style={list}>
-          <li>Microfone limpo (sem eco)</li>
-          <li>Volume equilibrado com o jogo</li>
-          <li>Evitar música demasiado alta</li>
-        </ul>
-
-        <p>
-          ⚠️ Áudio mau destrói uma stream mesmo com bom conteúdo.
-        </p>
-      </div>
-
-      {/* 7 CONTENT */}
-      <div style={card}>
-        <h2>📹 7. Conteúdo que funciona</h2>
-
-        <ul style={list}>
-          <li>Minecraft SMP / Survival</li>
-          <li>Valorant competitivo</li>
-          <li>Fortnite ranked</li>
-          <li>Just Chatting (quando tiveres comunidade)</li>
-        </ul>
-      </div>
-
-      {/* 8 GROWTH */}
-      <div style={card}>
-        <h2>📈 8. Como crescer a sério</h2>
-
-        <ul style={list}>
-          <li>3–5 streams por semana</li>
-          <li>Clips para TikTok TODOS os dias</li>
-          <li>Falar sempre na live</li>
-          <li>Interagir com chat mesmo vazio</li>
-        </ul>
-      </div>
-
-      {/* 9 TOOLS */}
-      <div style={card}>
-        <h2>🧰 9. Ferramentas úteis</h2>
-
-        <ul style={list}>
-          <li>OBS Studio — streaming</li>
-          <li>StreamElements — overlays + alerts</li>
-          <li>Nightbot — chat bot</li>
-          <li>Canva — design</li>
-          <li>CapCut — edição de clips</li>
-        </ul>
-      </div>
-
-      {/* FINAL */}
-      <div style={card}>
-        <h2>💬 Final</h2>
-
-        <p>
-          Se seguires isto tudo, já estás acima de 90% dos novos streamers.
-        </p>
-
-        <p>
-          O segredo não é sorte — é consistência.
-        </p>
-      </div>
-
-      <div style={footer}>
-        StreamLab PT • criado por Correia 🇵🇹
-      </div>
+        .item {
+          color: #9ca3af;
+          font-size: 13px;
+          margin: 4px 0;
+        }
+      `}</style>
 
     </div>
   )
 }
 
-/* ================= STYLES ================= */
+/* COMPONENTS */
 
-const page = {
-  minHeight: "100vh",
-  background: "#0b0f19",
-  color: "#e5e7eb",
-  fontFamily: "system-ui",
-  padding: "30px",
-  maxWidth: "900px",
-  margin: "0 auto"
+function Tab({ label, active, onClick }) {
+  return (
+    <button
+      onClick={onClick}
+      style={{
+        background: active ? "#a855f7" : "#111827",
+        borderColor: active ? "#a855f7" : "#2b2f3a"
+      }}
+    >
+      {label}
+    </button>
+  )
 }
 
-const header = {
-  marginBottom: 20,
-  paddingBottom: 15,
-  borderBottom: "1px solid #1f2937"
+function Card({ title, children }) {
+  return (
+    <div className="card">
+      <h3>{title}</h3>
+      {children}
+    </div>
+  )
 }
 
-const sub = {
-  color: "#9ca3af"
-}
-
-const card = {
-  background: "#111827",
-  padding: "18px",
-  borderRadius: "16px",
-  marginBottom: "12px"
-}
-
-const list = {
-  paddingLeft: "20px",
-  margin: 0,
-  color: "#9ca3af",
-  lineHeight: 1.8
-}
-
-const footer = {
-  marginTop: 30,
-  textAlign: "center",
-  fontSize: 12,
-  color: "#6b7280"
+function Item({ children }) {
+  return <div className="item">• {children}</div>
 }
