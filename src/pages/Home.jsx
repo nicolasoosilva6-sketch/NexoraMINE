@@ -46,7 +46,7 @@ export default function Home() {
           <div style={imageGlow}></div>
 
           <img
-            src="METE_AQUI_O_LINK_DA_TUA_IMAGEM"
+            src="https://chatgpt.com/backend-api/estuary/content?id=file_00000000dba87246928d056bf2434cb1&ts=494341&p=fs&cid=1&sig=22ec437f8d245132237536d2a01d263e8eb50b4fab6278949d02a6f3df291f55&v=0"
             alt="Nexora"
             style={heroImage}
           />
