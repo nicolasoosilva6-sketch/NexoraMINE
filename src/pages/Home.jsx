@@ -5,21 +5,23 @@ export default function Home() {
       {/* HERO */}
       <section style={hero}>
 
+        <div style={overlay}></div>
+
         <div style={heroContent}>
 
           <div style={badge}>
-            Plataforma Portuguesa de Streaming & Minecraft
+            NEXORA PLATFORM
           </div>
 
           <h1 style={title}>
-            Evolui no Minecraft.
+            A plataforma portuguesa
             <br />
-            Cresce no Streaming.
+            para streamers e Minecraft.
           </h1>
 
           <p style={description}>
-            A Nexora foi criada para ajudar jogadores e streamers portugueses
-            a melhorarem as suas streams, setups, conteúdo e presença online.
+            Guias completos de OBS, overlays, alertas, microfones,
+            Twitch, TikTok, crescimento e servidores portugueses.
           </p>
 
           <div style={buttons}>
@@ -29,11 +31,10 @@ export default function Home() {
             </a>
 
             <a
-              href="https://www.twitch.tv/correiamb"
-              target="_blank"
+              href="/servers"
               style={secondaryBtn}
             >
-              Twitch do Correia
+              Ver Servidores
             </a>
 
           </div>
@@ -41,12 +42,12 @@ export default function Home() {
         </div>
 
         {/* IMAGEM */}
-        <div style={imageArea}>
+        <div style={imageContainer}>
 
           <div style={imageGlow}></div>
 
           <img
-            src="https://chatgpt.com/backend-api/estuary/content?id=file_00000000dba87246928d056bf2434cb1&ts=494341&p=fs&cid=1&sig=22ec437f8d245132237536d2a01d263e8eb50b4fab6278949d02a6f3df291f55&v=0"
+            src="/nexora-logo.png"
             alt="Nexora"
             style={heroImage}
           />
@@ -55,16 +56,37 @@ export default function Home() {
 
       </section>
 
-      {/* INFO */}
-      <section style={section}>
+      {/* STATS */}
+      <section style={statsSection}>
 
-        <div style={sectionHeader}>
-          <p style={sectionMini}>
-            SOBRE A NEXORA
+        <div style={statCard}>
+          <h2 style={statNumber}>50+</h2>
+          <p style={statText}>Guias disponíveis</p>
+        </div>
+
+        <div style={statCard}>
+          <h2 style={statNumber}>100%</h2>
+          <p style={statText}>Gratuito</p>
+        </div>
+
+        <div style={statCard}>
+          <h2 style={statNumber}>PT</h2>
+          <p style={statText}>Comunidade Portuguesa</p>
+        </div>
+
+      </section>
+
+      {/* FEATURES */}
+      <section style={features}>
+
+        <div style={sectionTop}>
+          <p style={miniTitle}>
+            O QUE ENCONTRAS
           </p>
 
-          <h2 style={sectionTitle}>
-            Uma plataforma criada para ajudar streamers portugueses.
+          <h2 style={bigTitle}>
+            Tudo o que precisas
+            para melhorar as tuas streams.
           </h2>
         </div>
 
@@ -74,25 +96,13 @@ export default function Home() {
             <div style={icon}>🎥</div>
 
             <h3 style={cardTitle}>
-              Guias completos
+              OBS Studio
             </h3>
 
             <p style={cardText}>
-              Aprende OBS, overlays, alertas, microfone,
-              configurações e tudo o que precisas para começar.
-            </p>
-          </div>
-
-          <div style={card}>
-            <div style={icon}>🎮</div>
-
-            <h3 style={cardTitle}>
-              Comunidade Minecraft
-            </h3>
-
-            <p style={cardText}>
-              Descobre servidores portugueses, streamers e recursos
-              para melhorar a tua experiência no Minecraft.
+              Aprende a configurar bitrate,
+              encoder, microfone, alertas,
+              overlays e qualidade.
             </p>
           </div>
 
@@ -104,64 +114,22 @@ export default function Home() {
             </h3>
 
             <p style={cardText}>
-              Aprende estratégias reais para crescer na Twitch,
-              TikTok e YouTube.
+              Estratégias reais para crescer
+              na Twitch, TikTok e YouTube.
             </p>
           </div>
 
-        </div>
+          <div style={card}>
+            <div style={icon}>🎮</div>
 
-      </section>
+            <h3 style={cardTitle}>
+              Servidores
+            </h3>
 
-      {/* SECTION 2 */}
-      <section style={bigSection}>
-
-        <div style={left}>
-
-          <p style={sectionMini}>
-            PORQUÊ A NEXORA?
-          </p>
-
-          <h2 style={bigTitle}>
-            Tudo num só lugar.
-          </h2>
-
-          <p style={bigText}>
-            A maioria dos novos streamers perde demasiado tempo
-            à procura de informação confusa.
-          </p>
-
-          <p style={bigText}>
-            A Nexora junta tudo o que realmente importa:
-            guias simples, setups, overlays, bots e dicas reais.
-          </p>
-
-          <a href="/guides" style={primaryBtn}>
-            Ver Guias
-          </a>
-
-        </div>
-
-        <div style={rightBox}>
-
-          <div style={miniCard}>
-            <span>OBS Studio</span>
-            <strong>Configuração Completa</strong>
-          </div>
-
-          <div style={miniCard}>
-            <span>Twitch</span>
-            <strong>Como Crescer</strong>
-          </div>
-
-          <div style={miniCard}>
-            <span>Overlays</span>
-            <strong>Sites Recomendados</strong>
-          </div>
-
-          <div style={miniCard}>
-            <span>Microfone</span>
-            <strong>Melhores Definições</strong>
+            <p style={cardText}>
+              Descobre servidores portugueses
+              de Minecraft e streamers tugas.
+            </p>
           </div>
 
         </div>
@@ -175,42 +143,53 @@ export default function Home() {
 /* STYLES */
 
 const page = {
-  color: "white",
   minHeight: "100vh",
+  background: "#070b14",
+  color: "white",
   fontFamily: "system-ui",
-  paddingBottom: "120px"
+  overflow: "hidden"
 }
 
 const hero = {
-  minHeight: "85vh",
+  position: "relative",
+  minHeight: "92vh",
   display: "grid",
   gridTemplateColumns: "1.1fr 1fr",
   alignItems: "center",
-  gap: "60px",
-  padding: "80px 60px"
+  padding: "60px",
+  gap: "50px"
+}
+
+const overlay = {
+  position: "absolute",
+  inset: 0,
+  background:
+    "radial-gradient(circle at top, rgba(168,85,247,0.18), transparent 40%)",
+  pointerEvents: "none"
 }
 
 const heroContent = {
-  maxWidth: "700px"
+  position: "relative",
+  zIndex: 2
 }
 
 const badge = {
   display: "inline-block",
   background: "rgba(168,85,247,0.15)",
-  border: "1px solid rgba(168,85,247,0.35)",
+  border: "1px solid rgba(168,85,247,0.25)",
   color: "#c084fc",
   padding: "10px 18px",
   borderRadius: "999px",
-  fontWeight: "700",
+  fontWeight: "800",
   marginBottom: "25px"
 }
 
 const title = {
-  fontSize: "78px",
+  fontSize: "76px",
   lineHeight: 1,
   fontWeight: "900",
-  marginBottom: "30px",
-  background: "linear-gradient(90deg,#ffffff,#d8b4fe)",
+  marginBottom: "28px",
+  background: "linear-gradient(90deg,#fff,#d8b4fe)",
   WebkitBackgroundClip: "text",
   WebkitTextFillColor: "transparent"
 }
@@ -219,6 +198,7 @@ const description = {
   fontSize: "20px",
   color: "#9ca3af",
   lineHeight: 1.8,
+  maxWidth: "700px",
   marginBottom: "35px"
 }
 
@@ -232,23 +212,23 @@ const primaryBtn = {
   background: "linear-gradient(90deg,#9333ea,#7e22ce)",
   color: "white",
   padding: "16px 28px",
-  borderRadius: "16px",
+  borderRadius: "18px",
   textDecoration: "none",
   fontWeight: "800",
-  boxShadow: "0 0 30px rgba(168,85,247,0.25)"
+  boxShadow: "0 0 30px rgba(168,85,247,0.35)"
 }
 
 const secondaryBtn = {
   background: "rgba(255,255,255,0.05)",
-  border: "1px solid rgba(255,255,255,0.08)",
+  border: "1px solid rgba(255,255,255,0.1)",
   color: "white",
   padding: "16px 28px",
-  borderRadius: "16px",
+  borderRadius: "18px",
   textDecoration: "none",
   fontWeight: "700"
 }
 
-const imageArea = {
+const imageContainer = {
   position: "relative",
   display: "flex",
   justifyContent: "center",
@@ -259,40 +239,67 @@ const imageGlow = {
   position: "absolute",
   width: "450px",
   height: "450px",
-  background: "rgba(168,85,247,0.18)",
-  filter: "blur(100px)",
+  background: "rgba(168,85,247,0.25)",
+  filter: "blur(120px)",
   borderRadius: "999px"
 }
 
 const heroImage = {
   position: "relative",
   width: "100%",
-  maxWidth: "520px",
-  borderRadius: "30px",
-  border: "1px solid rgba(168,85,247,0.25)",
-  boxShadow: "0 0 40px rgba(168,85,247,0.18)"
+  maxWidth: "650px",
+  objectFit: "contain",
+  filter: "drop-shadow(0 0 40px rgba(168,85,247,0.45))"
 }
 
-const section = {
-  padding: "40px 60px"
+const statsSection = {
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit,minmax(250px,1fr))",
+  gap: "25px",
+  padding: "0 60px 80px"
 }
 
-const sectionHeader = {
-  marginBottom: "40px"
+const statCard = {
+  background: "rgba(17,24,39,0.7)",
+  border: "1px solid rgba(168,85,247,0.15)",
+  borderRadius: "28px",
+  padding: "35px",
+  textAlign: "center",
+  boxShadow: "0 0 25px rgba(168,85,247,0.08)"
 }
 
-const sectionMini = {
+const statNumber = {
+  fontSize: "52px",
+  fontWeight: "900",
+  marginBottom: "10px",
+  color: "#c084fc"
+}
+
+const statText = {
+  color: "#9ca3af",
+  fontSize: "18px"
+}
+
+const features = {
+  padding: "20px 60px 120px"
+}
+
+const sectionTop = {
+  marginBottom: "50px"
+}
+
+const miniTitle = {
   color: "#a855f7",
   fontWeight: "800",
   letterSpacing: "2px",
-  marginBottom: "15px"
+  marginBottom: "14px"
 }
 
-const sectionTitle = {
-  fontSize: "50px",
+const bigTitle = {
+  fontSize: "58px",
   fontWeight: "900",
-  maxWidth: "900px",
-  lineHeight: 1.1
+  lineHeight: 1.1,
+  maxWidth: "900px"
 }
 
 const grid = {
@@ -302,11 +309,11 @@ const grid = {
 }
 
 const card = {
-  background: "rgba(17,24,39,0.7)",
+  background: "rgba(17,24,39,0.75)",
   border: "1px solid rgba(168,85,247,0.15)",
-  boxShadow: "0 0 30px rgba(168,85,247,0.08)",
+  borderRadius: "30px",
   padding: "35px",
-  borderRadius: "28px"
+  boxShadow: "0 0 25px rgba(168,85,247,0.08)"
 }
 
 const icon = {
@@ -315,55 +322,13 @@ const icon = {
 }
 
 const cardTitle = {
-  fontSize: "28px",
-  fontWeight: "800",
-  marginBottom: "16px"
+  fontSize: "30px",
+  fontWeight: "900",
+  marginBottom: "15px"
 }
 
 const cardText = {
   color: "#9ca3af",
   lineHeight: 1.8,
   fontSize: "17px"
-}
-
-const bigSection = {
-  display: "grid",
-  gridTemplateColumns: "1fr 1fr",
-  gap: "60px",
-  alignItems: "center",
-  padding: "80px 60px"
-}
-
-const left = {
-  maxWidth: "700px"
-}
-
-const bigTitle = {
-  fontSize: "60px",
-  fontWeight: "900",
-  marginBottom: "25px"
-}
-
-const bigText = {
-  color: "#9ca3af",
-  lineHeight: 1.9,
-  marginBottom: "22px",
-  fontSize: "18px"
-}
-
-const rightBox = {
-  display: "flex",
-  flexDirection: "column",
-  gap: "20px"
-}
-
-const miniCard = {
-  background: "rgba(17,24,39,0.8)",
-  border: "1px solid rgba(168,85,247,0.15)",
-  padding: "28px",
-  borderRadius: "24px",
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
-  fontSize: "18px"
 }
