@@ -10,73 +10,82 @@ export default function App() {
     <BrowserRouter>
 
       {/* BACKGROUND */}
-      <div style={bg}></div>
+      <div style={background}></div>
 
       {/* NAVBAR */}
       <nav style={navbar}>
 
         {/* LOGO */}
-        <div style={logoBox}>
-          <div style={logoGlow}></div>
+        <div style={logoContainer}>
 
-          <h1 style={logo}>
+          <img
+            src="/nexora-logo.png"
+            alt="Nexora"
+            style={logoImage}
+          />
+
+          <h1 style={logoText}>
             Nexora
           </h1>
+
         </div>
 
         {/* LINKS */}
         <div style={navCenter}>
 
-          <Link to="/" style={link}>
+          <Link to="/" style={navLink}>
             Home
           </Link>
 
-          <Link to="/guides" style={link}>
+          <Link to="/guides" style={navLink}>
             Guias
           </Link>
 
-          <Link to="/servers" style={link}>
+          <Link to="/servers" style={navLink}>
             Servidores
           </Link>
 
-          <Link to="/streamers" style={link}>
+          <Link to="/streamers" style={navLink}>
             Streamers
           </Link>
 
         </div>
 
-        {/* BOTAO */}
+        {/* BUTTON */}
         <a
           href="https://www.twitch.tv/correiamb"
           target="_blank"
-          style={button}
+          style={twitchBtn}
         >
           Twitch
         </a>
 
       </nav>
 
-      {/* PAGINAS */}
+      {/* PAGES */}
       <Routes>
+
         <Route path="/" element={<Home />} />
+
         <Route path="/guides" element={<Guides />} />
+
         <Route path="/servers" element={<Servers />} />
+
         <Route path="/streamers" element={<Streamers />} />
+
       </Routes>
 
     </BrowserRouter>
   )
 }
 
-/* =========================
-   STYLES
-========================= */
+/* STYLES */
 
-const bg = {
+const background = {
   position: "fixed",
   inset: 0,
   background:
-    "radial-gradient(circle at top, rgba(168,85,247,0.15), transparent 40%), #070b14",
+    "radial-gradient(circle at top, rgba(168,85,247,0.15), transparent 35%), #070b14",
   zIndex: -1
 }
 
@@ -89,33 +98,31 @@ const navbar = {
   justifyContent: "space-between",
   alignItems: "center",
 
-  padding: "18px 40px",
+  padding: "18px 50px",
 
-  background: "rgba(10,15,25,0.75)",
-  backdropFilter: "blur(12px)",
+  background: "rgba(7,11,20,0.72)",
+  backdropFilter: "blur(14px)",
 
   borderBottom: "1px solid rgba(168,85,247,0.18)",
 
-  boxShadow: "0 0 30px rgba(168,85,247,0.08)"
+  boxShadow: "0 0 30px rgba(168,85,247,0.10)"
 }
 
-const logoBox = {
-  position: "relative",
+const logoContainer = {
   display: "flex",
-  alignItems: "center"
+  alignItems: "center",
+  gap: "14px"
 }
 
-const logoGlow = {
-  position: "absolute",
-  width: "100px",
-  height: "100px",
-  background: "rgba(168,85,247,0.20)",
-  filter: "blur(45px)",
-  borderRadius: "999px"
+const logoImage = {
+  width: "52px",
+  height: "52px",
+  objectFit: "contain",
+  filter:
+    "drop-shadow(0 0 18px rgba(168,85,247,0.45))"
 }
 
-const logo = {
-  position: "relative",
+const logoText = {
   fontSize: "34px",
   fontWeight: "900",
   margin: 0,
@@ -130,34 +137,36 @@ const navCenter = {
   alignItems: "center",
   gap: "18px",
 
-  background: "rgba(17,24,39,0.65)",
+  background: "rgba(17,24,39,0.68)",
   padding: "10px 18px",
   borderRadius: "999px",
 
-  border: "1px solid rgba(168,85,247,0.18)"
+  border: "1px solid rgba(168,85,247,0.18)",
+
+  boxShadow: "0 0 20px rgba(168,85,247,0.08)"
 }
 
-const link = {
+const navLink = {
   color: "#e5e7eb",
   textDecoration: "none",
   fontWeight: "700",
   fontSize: "15px",
 
-  padding: "10px 16px",
+  padding: "10px 18px",
   borderRadius: "999px",
 
   transition: "0.2s"
 }
 
-const button = {
+const twitchBtn = {
   background: "linear-gradient(90deg,#9333ea,#7e22ce)",
   color: "white",
 
-  padding: "12px 20px",
-  borderRadius: "14px",
+  padding: "13px 24px",
+  borderRadius: "16px",
 
   textDecoration: "none",
   fontWeight: "800",
 
-  boxShadow: "0 0 20px rgba(168,85,247,0.25)"
+  boxShadow: "0 0 25px rgba(168,85,247,0.28)"
 }
