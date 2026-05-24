@@ -19,7 +19,7 @@ export default function App() {
         <div style={logoContainer}>
 
           <img
-            src="/nexora-logo.png"
+            src="/nexora2.png"
             alt="Nexora"
             style={logoImage}
           />

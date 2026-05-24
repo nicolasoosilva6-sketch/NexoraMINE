@@ -26,6 +26,14 @@ const baseStreamers = [
     link: "https://www.twitch.tv/chicodascouves2212"
   },
   {
+    name: "Pato_Conselhos",
+    platform: "TikTok",
+    game: "Minecraft Survival",
+    TikTok: "Pato Conselhos",
+    avatar: "https://www.petz.com.br/blog/wp-content/uploads/2022/03/animais-que-botom-ovo-2.jpg", // 👈 COLE AQUI O LINK DO PNG
+    link: "https://www.tiktok.com/@patoconselhos?is_from_webapp=1&sender_device=pc"
+  },
+  {
     name: "Feromonas",
     platform: "Twitch",
     game: "Minecraft Mods",

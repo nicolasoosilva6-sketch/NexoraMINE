@@ -44,7 +44,7 @@ export default function Home() {
           <div style={imageGlow}></div>
 
           <img
-            src="/nexora-logo.png"
+            src="nexora-logo.png"
             alt="Nexora"
             style={heroImage}
           />
