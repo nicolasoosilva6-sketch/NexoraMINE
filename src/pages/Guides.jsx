@@ -1,61 +1,139 @@
 import { useState } from "react"
 
+import twitchLogo from "../assets/twitch-logo.png"
+import obsLogo from "../assets/obs-logo.png"
+import nightbotLogo from "../assets/nightbot-logo.png"
+import microphoneLogo from "../assets/microphone-logo.png"
+import growthLogo from "../assets/crescimento-logo.png"
+
+import youtubeLogo from "../assets/youtube-logo.png"
+import tiktokLogo from "../assets/tiktok-logo.png"
+import kickLogo from "../assets/kick-logo.png"
+import barraLogo from "../assets/barra-logo.png"
+
+import cameraLogo from "../assets/camera-logo.png"
+import monitorLogo from "../assets/monitor-logo.png"
+import cpuLogo from "../assets/cpu-logo.png"
+
+import comandosLogo from "../assets/comandos-logo.png"
+import chatLogo from "../assets/chat-logo.png"
+
+import somLogo from "../assets/som-logo.png"
+import fonesLogo from "../assets/fones-logo.png"
+
 export default function Guides() {
   const [tab, setTab] = useState("platforms")
 
   return (
     <div className="page">
 
-      {/* HEADER */}
-      <div className="header">
-        <h1> Streamer Control Panel</h1>
-        <p>Dashboard completo para crescimento real no streaming</p>
+      {/* HERO */}
+      <div className="hero">
+
+        <div className="heroGlow"></div>
+
+        <h1>
+          🎮 Streamer Control Panel
+        </h1>
+
+        <p>
+          Dashboard completo para streamers crescerem a sério
+        </p>
+
       </div>
 
-      {/* NAV TABS */}
+      {/* TABS */}
       <div className="tabs">
-        <Tab label="🌐 Plataformas" active={tab==="platforms"} onClick={()=>setTab("platforms")} />
-        <Tab label="🎥 OBS Setup" active={tab==="obs"} onClick={()=>setTab("obs")} />
-        <Tab label="🤖 Bots" active={tab==="bots"} onClick={()=>setTab("bots")} />
-        <Tab label="🎤 Áudio" active={tab==="audio"} onClick={()=>setTab("audio")} />
-        <Tab label="📈 Crescimento" active={tab==="growth"} onClick={()=>setTab("growth")} />
+
+        <Tab
+          icon={twitchLogo}
+          type="twitch"
+          label="Plataformas"
+          active={tab === "platforms"}
+          onClick={() => setTab("platforms")}
+        />
+
+        <Tab
+          icon={obsLogo}
+          type="obs"
+          label="OBS Setup"
+          active={tab === "obs"}
+          onClick={() => setTab("obs")}
+        />
+
+        <Tab
+          icon={nightbotLogo}
+          type="nightbot"
+          label="Bots"
+          active={tab === "bots"}
+          onClick={() => setTab("bots")}
+        />
+
+        <Tab
+          icon={microphoneLogo}
+          type="mic"
+          label="Áudio"
+          active={tab === "audio"}
+          onClick={() => setTab("audio")}
+        />
+
+        <Tab
+          icon={growthLogo}
+          type="growth"
+          label="Crescimento"
+          active={tab === "growth"}
+          onClick={() => setTab("growth")}
+        />
+
       </div>
 
-      {/* CONTENT */}
+      {/* PANEL */}
       <div className="panel">
 
-        {/* PLATAFORMAS */}
+        {/* PLATFORMS */}
         {tab === "platforms" && (
           <div className="grid">
 
-            <Card title="Twitch">
-              <Item>Streaming principal gaming</Item>
-              <Item>Subs + Bits monetização</Item>
-              <Item>Chat ativo em tempo real</Item>
-              <Item>Raid + community growth</Item>
-              <Item>Emotes personalizados</Item>
-              <Item>Extensões interativas</Item>
-              <Item>Categoria Minecraft forte</Item>
+            <Card
+              title="Twitch"
+              icon={twitchLogo}
+              iconSize={40}
+            >
+              <Item>Melhor plataforma para gaming</Item>
+              <Item>Raids ajudam crescimento</Item>
+              <Item>Bits + subs monetização</Item>
+              <Item>Comunidade muito ativa</Item>
+              <Item>Categoria Minecraft enorme</Item>
+              <Item>Chat rápido e interativo</Item>
+              <Item>Extensões personalizadas</Item>
             </Card>
 
-            <Card title="YouTube Live">
-              <Item>Long-term growth</Item>
-              <Item>Integra Shorts + vídeos</Item>
-              <Item>SEO ajuda descoberta</Item>
+            <Card
+              title="YouTube Live"
+              icon={youtubeLogo}
+              iconSize={40}
+            >
               <Item>Lives ficam gravadas</Item>
-              <Item>Monetização ads</Item>
-              <Item>Comunidade estável</Item>
-              <Item>Ideal para conteúdo híbrido</Item>
+              <Item>SEO ajuda descoberta</Item>
+              <Item>Integra vídeos + shorts</Item>
+              <Item>Maior crescimento longo prazo</Item>
+              <Item>Monetização por ads</Item>
+              <Item>Mais fácil aparecer pesquisa</Item>
+              <Item>Ideal conteúdo híbrido</Item>
             </Card>
 
-            <Card title="Kick / TikTok / Outros">
-              <Item>Kick: menos concorrência</Item>
-              <Item>TikTok: crescimento viral</Item>
-              <Item>Facebook Gaming: nicho casual</Item>
-              <Item>Trovo: público gaming</Item>
-              <Item>Restream: multi-stream</Item>
-              <Item>OBS multi output</Item>
-              <Item>Expande alcance global</Item>
+            <Card
+              title="Kick / TikTok"
+              tripleIcons={[kickLogo, barraLogo, tiktokLogo]}
+              tripleSizes={[70, 20, 42]}
+            >
+              <Item>Kick paga melhor creators</Item>
+              <Item>Menos concorrência</Item>
+              <Item>TikTok viraliza rápido</Item>
+              <Item>Clips ajudam crescer</Item>
+              <Item>Lives mobile simples</Item>
+              <Item>Ideal para audiência nova</Item>
+              <Item>Conteúdo curto funciona bem</Item>
             </Card>
 
           </div>
@@ -65,34 +143,46 @@ export default function Guides() {
         {tab === "obs" && (
           <div className="grid">
 
-            <Card title="Video Setup">
-              <Item>1080p 60fps ideal</Item>
-              <Item>720p se PC fraco</Item>
-              <Item>Bitrate 6000–8000</Item>
-              <Item>Encoder NVENC (NVIDIA)</Item>
-              <Item>FPS constante sem drops</Item>
+            <Card
+              title="Video Setup"
+              icon={cameraLogo}
+              iconSize={42}
+            >
+              <Item>1080p 60fps recomendado</Item>
+              <Item>NVENC melhor encoder</Item>
+              <Item>Bitrate 6000+</Item>
               <Item>Game Capture recomendado</Item>
-              <Item>Scenes organizadas</Item>
+              <Item>Evitar dropped frames</Item>
+              <Item>720p se PC fraco</Item>
+              <Item>Usar canvas 1920x1080</Item>
             </Card>
 
-            <Card title="Scenes (Essencial)">
+            <Card
+              title="Scenes"
+              icon={monitorLogo}
+              iconSize={42}
+            >
               <Item>Starting Soon</Item>
-              <Item>Live Scene</Item>
-              <Item>BRB (afk)</Item>
-              <Item>Ending Screen</Item>
+              <Item>Gameplay Scene</Item>
               <Item>Just Chatting</Item>
-              <Item>Game Scene</Item>
+              <Item>Ending Stream</Item>
+              <Item>Pause / BRB</Item>
+              <Item>Fullscreen webcam</Item>
               <Item>Intermission</Item>
             </Card>
 
-            <Card title="Performance">
-              <Item>CPU load controlado</Item>
-              <Item>Evitar browser sources pesadas</Item>
-              <Item>Reduz overlays pesados</Item>
-              <Item>Teste antes de live</Item>
-              <Item>Monitorização FPS</Item>
-              <Item>Audio sync correto</Item>
-              <Item>Stable bitrate</Item>
+            <Card
+              title="Performance"
+              icon={cpuLogo}
+              iconSize={42}
+            >
+              <Item>Fechar apps pesadas</Item>
+              <Item>Não usar overlays excessivas</Item>
+              <Item>Monitorizar CPU usage</Item>
+              <Item>Testar stream antes</Item>
+              <Item>Internet estável importante</Item>
+              <Item>Evitar browser sources demais</Item>
+              <Item>Atualizar drivers GPU</Item>
             </Card>
 
           </div>
@@ -102,34 +192,46 @@ export default function Guides() {
         {tab === "bots" && (
           <div className="grid">
 
-            <Card title="Bots principais">
+            <Card
+              title="Bots"
+              icon={nightbotLogo}
+              iconSize={42}
+            >
               <Item>Nightbot simples</Item>
               <Item>StreamElements completo</Item>
               <Item>Moobot leve</Item>
-              <Item>Moderação automática</Item>
-              <Item>Spam protection</Item>
+              <Item>Proteção spam automática</Item>
+              <Item>Auto moderation</Item>
               <Item>Timers automáticos</Item>
-              <Item>Chat commands</Item>
+              <Item>Giveaways fáceis</Item>
             </Card>
 
-            <Card title="Comandos úteis">
+            <Card
+              title="Comandos"
+              icon={comandosLogo}
+              iconSize={42}
+            >
               <Item>!discord</Item>
-              <Item>!socials</Item>
-              <Item>!live</Item>
-              <Item>!setup</Item>
               <Item>!sens</Item>
-              <Item>!rank</Item>
+              <Item>!setup</Item>
+              <Item>!socials</Item>
               <Item>!commands</Item>
+              <Item>!live</Item>
+              <Item>!rank</Item>
             </Card>
 
-            <Card title="Engagement">
+            <Card
+              title="Interação"
+              icon={chatLogo}
+              iconSize={42}
+            >
               <Item>Polls no chat</Item>
-              <Item>Giveaways automáticos</Item>
-              <Item>Alerts no chat</Item>
-              <Item>Auto messages</Item>
-              <Item>Viewer interaction</Item>
-              <Item>Cooldown commands</Item>
-              <Item>Community events</Item>
+              <Item>Giveaways viewers</Item>
+              <Item>Mensagens automáticas</Item>
+              <Item>Interação constante</Item>
+              <Item>Mini jogos no chat</Item>
+              <Item>Viewer points</Item>
+              <Item>Eventos especiais</Item>
             </Card>
 
           </div>
@@ -139,24 +241,46 @@ export default function Guides() {
         {tab === "audio" && (
           <div className="grid">
 
-            <Card title="Microfone">
+            <Card
+              title="Microfone"
+              icon={microphoneLogo}
+              iconSize={42}
+            >
               <Item>Noise suppression</Item>
               <Item>Compressor ativo</Item>
-              <Item>Noise gate setup</Item>
-              <Item>Gain equilibrado</Item>
+              <Item>Noise gate configurado</Item>
+              <Item>Volume equilibrado</Item>
               <Item>Sem eco na sala</Item>
-              <Item>Mic cardioid recomendado</Item>
-              <Item>Teste antes de live</Item>
+              <Item>Mic perto da boca</Item>
+              <Item>Teste antes da live</Item>
             </Card>
 
-            <Card title="Mix de som">
-              <Item>Game volume mais baixo</Item>
-              <Item>Voice prioridade</Item>
-              <Item>Music controlada</Item>
-              <Item>No clipping audio</Item>
+            <Card
+              title="Som"
+              icon={somLogo}
+              iconSize={42}
+            >
+              <Item>Jogo mais baixo que voz</Item>
+              <Item>Evitar clipping</Item>
+              <Item>Música controlada</Item>
               <Item>Separate tracks OBS</Item>
+              <Item>Headset recomendado</Item>
               <Item>EQ leve na voz</Item>
-              <Item>Monitoramento headset</Item>
+              <Item>Monitorizar áudio live</Item>
+            </Card>
+
+            <Card
+              title="Setup Ideal"
+              icon={fonesLogo}
+              iconSize={42}
+            >
+              <Item>Headphones fechados</Item>
+              <Item>Mic cardioid</Item>
+              <Item>Braço articulado</Item>
+              <Item>Filtro anti-pop</Item>
+              <Item>Room treatment básico</Item>
+              <Item>Ganhos equilibrados</Item>
+              <Item>Evitar ventiladores altos</Item>
             </Card>
 
           </div>
@@ -166,24 +290,34 @@ export default function Guides() {
         {tab === "growth" && (
           <div className="grid">
 
-            <Card title="Conteúdo diário">
-              <Item>TikTok clips todos os dias</Item>
-              <Item>YouTube Shorts</Item>
-              <Item>Clips engraçados</Item>
-              <Item>Momentos clutch</Item>
-              <Item>Highlights da live</Item>
-              <Item>Trending sounds</Item>
-              <Item>Consistency total</Item>
+            <Card title="📈 Crescimento">
+              <Item>Streams consistentes</Item>
+              <Item>Horário fixo</Item>
+              <Item>Falar SEMPRE</Item>
+              <Item>Mesmo sem viewers</Item>
+              <Item>Comunidade Discord</Item>
+              <Item>Collabs ajudam muito</Item>
+              <Item>Ser reconhecível</Item>
             </Card>
 
-            <Card title="Estratégia real">
-              <Item>3–6 streams por semana</Item>
-              <Item>Horários fixos</Item>
-              <Item>Interagir SEMPRE</Item>
-              <Item>Collabs com outros streamers</Item>
-              <Item>Comunidade Discord</Item>
-              <Item>Reutilizar conteúdo</Item>
-              <Item>Não parar mesmo sem viewers</Item>
+            <Card title="🎬 Conteúdo">
+              <Item>TikTok todos dias</Item>
+              <Item>Shorts YouTube</Item>
+              <Item>Clips engraçados</Item>
+              <Item>Momentos clutch</Item>
+              <Item>Highlights stream</Item>
+              <Item>Trending sounds</Item>
+              <Item>Conteúdo curto viraliza</Item>
+            </Card>
+
+            <Card title="💡 Mentalidade">
+              <Item>Não desistir cedo</Item>
+              <Item>Consistência ganha</Item>
+              <Item>Aprender sempre</Item>
+              <Item>Melhorar setup aos poucos</Item>
+              <Item>Comparar menos</Item>
+              <Item>Focar comunidade</Item>
+              <Item>Divertir enquanto streama</Item>
             </Card>
 
           </div>
@@ -191,80 +325,189 @@ export default function Guides() {
 
       </div>
 
-      {/* STYLE */}
+      {/* CSS */}
       <style>{`
-        body {
-          margin: 0;
-          background: #0b0f19;
-          color: white;
-          font-family: system-ui;
+
+        body{
+          margin:0;
+          background:#070b17;
+          color:white;
+          font-family:Inter,system-ui;
         }
 
-        .page {
-          max-width: 1100px;
-          margin: auto;
-          padding: 30px;
+        .page{
+          max-width:1150px;
+          margin:auto;
+          padding:35px;
         }
 
-        .header h1 {
-          font-size: 34px;
-          background: linear-gradient(90deg,#a855f7,#3b82f6);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
+        .hero{
+          position:relative;
+          overflow:hidden;
+          background:linear-gradient(135deg,#111827,#0f172a);
+          border:1px solid #1f2937;
+          padding:35px;
+          border-radius:24px;
+          margin-bottom:25px;
         }
 
-        .tabs {
-          display: flex;
-          gap: 10px;
-          margin: 20px 0;
-          flex-wrap: wrap;
+        .heroGlow{
+          position:absolute;
+          width:300px;
+          height:300px;
+          background:#a855f7;
+          filter:blur(120px);
+          opacity:0.2;
+          top:-100px;
+          right:-100px;
         }
 
-        .tabs button {
-          background: #111827;
-          color: white;
-          border: 1px solid #2b2f3a;
-          padding: 10px 14px;
-          border-radius: 12px;
-          cursor: pointer;
-          transition: 0.2s;
+        .hero h1{
+          margin:0;
+          font-size:42px;
+          font-weight:900;
+          background:linear-gradient(90deg,#a855f7,#3b82f6);
+          -webkit-background-clip:text;
+          -webkit-text-fill-color:transparent;
         }
 
-        .tabs button:hover {
-          transform: translateY(-2px);
-          border-color: #a855f7;
+        .hero p{
+          color:#9ca3af;
+          margin-top:10px;
+          font-size:15px;
         }
 
-        .panel {
-          background: #111827;
-          padding: 16px;
-          border-radius: 16px;
+        .tabs{
+          display:flex;
+          gap:12px;
+          flex-wrap:wrap;
+          margin-bottom:20px;
         }
 
-        .grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-          gap: 12px;
+        .tab{
+          display:flex;
+          align-items:center;
+          gap:12px;
+          background:#111827;
+          border:1px solid #1f2937;
+          padding:12px 18px;
+          border-radius:14px;
+          cursor:pointer;
+          transition:0.25s;
+          color:white;
+          font-weight:600;
         }
 
-        .card {
-          background: #0b0f19;
-          padding: 14px;
-          border-radius: 14px;
-          border: 1px solid #1f2937;
-          transition: 0.2s;
+        .tab:hover{
+          transform:translateY(-3px);
+          border-color:#a855f7;
+          box-shadow:0 0 20px rgba(168,85,247,0.3);
         }
 
-        .card:hover {
-          transform: scale(1.02);
-          border-color: #3b82f6;
+        .activeTab{
+          background:#a855f7;
+          border-color:#a855f7;
         }
 
-        .item {
-          color: #9ca3af;
-          font-size: 13px;
-          margin: 4px 0;
+        .tab img{
+          object-fit:contain;
         }
+
+        .tab.twitch img{
+          width:34px;
+          height:34px;
+        }
+
+        .tab.nightbot img{
+          width:36px;
+          height:36px;
+        }
+
+        .tab.obs img{
+          width:24px;
+          height:24px;
+        }
+
+        .tab.mic img{
+          width:24px;
+          height:24px;
+        }
+
+        .tab.growth img{
+          width:28px;
+          height:28px;
+        }
+
+        .panel{
+          background:#111827;
+          border:1px solid #1f2937;
+          padding:18px;
+          border-radius:24px;
+        }
+
+        .grid{
+          display:grid;
+          grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+          gap:14px;
+        }
+
+        .card{
+          background:#0b1220;
+          border:1px solid #1f2937;
+          border-radius:20px;
+          padding:18px;
+          transition:0.25s;
+          position:relative;
+          overflow:hidden;
+        }
+
+        .card::before{
+          content:'';
+          position:absolute;
+          inset:0;
+          background:linear-gradient(135deg,rgba(168,85,247,.12),transparent);
+          opacity:0;
+          transition:0.3s;
+        }
+
+        .card:hover::before{
+          opacity:1;
+        }
+
+        .card:hover{
+          transform:translateY(-4px);
+          border-color:#3b82f6;
+          box-shadow:0 0 25px rgba(59,130,246,.15);
+        }
+
+        .cardHeader{
+          display:flex;
+          align-items:center;
+          gap:12px;
+          margin-bottom:14px;
+        }
+
+        .cardLogo{
+          object-fit:contain;
+        }
+
+        .card h3{
+          margin:0;
+          font-size:18px;
+        }
+
+        .item{
+          color:#9ca3af;
+          margin:8px 0;
+          font-size:14px;
+          transition:0.2s;
+        }
+
+        .item:hover{
+          color:white;
+          transform:translateX(4px);
+        }
+
       `}</style>
 
     </div>
@@ -273,29 +516,104 @@ export default function Guides() {
 
 /* COMPONENTS */
 
-function Tab({ label, active, onClick }) {
+function Tab({ label, active, onClick, icon, type }) {
   return (
     <button
       onClick={onClick}
-      style={{
-        background: active ? "#a855f7" : "#111827",
-        borderColor: active ? "#a855f7" : "#2b2f3a"
-      }}
+      className={`tab ${active ? "activeTab" : ""} ${type}`}
     >
-      {label}
+      <img src={icon} alt="" />
+      <span>{label}</span>
     </button>
   )
 }
 
-function Card({ title, children }) {
+function Card({
+  title,
+  children,
+  icon,
+  tripleIcons,
+  iconSize = 30,
+  tripleSizes = [30, 30, 30]
+}) {
   return (
     <div className="card">
-      <h3>{title}</h3>
+
+      <div className="cardHeader">
+
+        {icon && (
+          <img
+            src={icon}
+            alt=""
+            className="cardLogo"
+            style={{
+              width: `${iconSize}px`,
+              height: `${iconSize}px`,
+              objectFit: "contain"
+            }}
+          />
+        )}
+
+        {tripleIcons && (
+          <div
+            className="tripleLogos"
+            style={{
+              display: "flex",
+              alignItems: "center"
+            }}
+          >
+
+            <img
+              src={tripleIcons[0]}
+              alt=""
+              style={{
+                width: tripleSizes[0],
+                height: tripleSizes[0],
+                objectFit: "contain",
+                marginRight: "-8px"
+              }}
+            />
+
+            <img
+              src={tripleIcons[1]}
+              alt=""
+              style={{
+                width: tripleSizes[1],
+                height: tripleSizes[1],
+                objectFit: "contain",
+                marginLeft: "-8px",
+                marginRight: "-8px"
+              }}
+            />
+
+            <img
+              src={tripleIcons[2]}
+              alt=""
+              style={{
+                width: tripleSizes[2],
+                height: tripleSizes[2],
+                objectFit: "contain",
+                marginLeft: "7px"
+              }}
+            />
+
+          </div>
+        )}
+
+        <h3>{title}</h3>
+
+      </div>
+
       {children}
+
     </div>
   )
 }
 
 function Item({ children }) {
-  return <div className="item">• {children}</div>
+  return (
+    <div className="item">
+      • {children}
+    </div>
+  )
 }

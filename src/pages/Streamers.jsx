@@ -7,15 +7,15 @@ const platformIcons = {
 }
 
 const baseStreamers = [
-  { name: "CorreiaMB", platform: "Twitch", game: "Minecraft Survival", avatar: "https://static-cdn.jtvnw.net/jtv_user_pictures/e78c7a30-e01c-40dd-a1ed-345f68c2cd19-profile_image-70x70.png", link: "https://www.twitch.tv/correiamb" },
-  { name: "Cartaxo", platform: "Twitch", game: "Minecraft Survival", avatar: "https://static-cdn.jtvnw.net/jtv_user_pictures/cc5c2048-de71-4f54-9173-e383c705fa47-profile_image-70x70.png", link: "https://www.twitch.tv/cartaxo2720" },
-  { name: "Franciscop", platform: "Twitch", game: "Minecraft Survival", avatar: "https://static-cdn.jtvnw.net/jtv_user_pictures/7de856f0-fd01-4c93-b03a-00122a913bcf-profile_image-70x70.jpeg", link: "https://www.twitch.tv/chicodascouves2212" },
-  { name: "Pato_Conselhos", platform: "TikTok", game: "Minecraft Survival", avatar: "https://www.petz.com.br/blog/wp-content/uploads/2022/03/animais-que-botom-ovo-2.jpg", link: "https://www.tiktok.com/@patoconselhos?is_from_webapp=1&sender_device=pc" },
-  { name: "Feromonas", platform: "Twitch", game: "Minecraft Mods", avatar: "https://static-cdn.jtvnw.net/jtv_user_pictures/dfb98a19-2543-4ee2-a676-8292f29d3498-profile_image-70x70.png", link: "https://www.twitch.tv/feromonas" },
-  { name: "Dream", platform: "YouTube", game: "Minecraft SMP", avatar: "https://yt3.ggpht.com/In7JtEzLm2klae8nEa04D9OEYn_Sz8DUCEEs3lon3db0d2B7Ng4-jNRWv3C5hetujaqAj9mwBg=s176-c-k-c0x00ffffff-no-rj-mo", link: "https://www.youtube.com/@dream" },
-  { name: "GeorgeNotFound", platform: "YouTube", game: "Minecraft SMP", avatar: "https://yt3.googleusercontent.com/ytc/AIdro_m1rQBE9mRK7nnv532ja0Djt3DazkS7PwoHlEuvexK81Qs=s176-c-k-c0x00ffffff-no-rj-mo", link: "https://www.youtube.com/@GeorgeNotFound" },
-  { name: "TommyInnit", platform: "Twitch", game: "Minecraft SMP", avatar: "https://yt3.googleusercontent.com/ytc/AIdro_nKI4I6HlD1WXXXLig8UdltE92jpUSW6ng8P0cUUPUhKzw=s176-c-k-c0x00ffffff-no-rj-mo", link: "https://www.twitch.tv/tommyinnit" },
-  { name: "FitMC", platform: "YouTube", game: "2b2t Anarchy", avatar: "https://yt3.ggpht.com/f4O0l4jsK6dMTJD5ef32aGAhLu6ql4e4fT_AxxH59WICj11wPeI2ZHuGvI1F-ftvvS09VXA95A=s176-c-k-c0x00ffffff-no-rj-mo", link: "https://www.youtube.com/@FitMC" }
+  { name: "CorreiaMB", platform: "Twitch", game: "𝗠𝗶𝗻𝗲𝗰𝗿𝗮𝗳𝘁 𝗦𝘂𝗿𝘃𝗶𝘃𝗮𝗹", avatar: "https://static-cdn.jtvnw.net/jtv_user_pictures/e78c7a30-e01c-40dd-a1ed-345f68c2cd19-profile_image-70x70.png", link: "https://www.twitch.tv/correiamb" },
+  { name: "Cartaxo", platform: "Twitch", game: "𝗠𝗶𝗻𝗲𝗰𝗿𝗮𝗳𝘁 𝗦𝘂𝗿𝘃𝗶𝘃𝗮𝗹", avatar: "https://static-cdn.jtvnw.net/jtv_user_pictures/cc5c2048-de71-4f54-9173-e383c705fa47-profile_image-70x70.png", link: "https://www.twitch.tv/cartaxo2720" },
+  { name: "Franciscop", platform: "Twitch", game: "𝗠𝗶𝗻𝗲𝗰𝗿𝗮𝗳𝘁 𝗦𝘂𝗿𝘃𝗶𝘃𝗮𝗹", avatar: "https://static-cdn.jtvnw.net/jtv_user_pictures/7de856f0-fd01-4c93-b03a-00122a913bcf-profile_image-70x70.jpeg", link: "https://www.twitch.tv/chicodascouves2212" },
+  { name: "Pato_Conselhos", platform: "TikTok", game: "𝗠𝗶𝗻𝗲𝗰𝗿𝗮𝗳𝘁 𝗦𝘂𝗿𝘃𝗶𝘃𝗮𝗹", avatar: "https://www.petz.com.br/blog/wp-content/uploads/2022/03/animais-que-botom-ovo-2.jpg", link: "https://www.tiktok.com/@patoconselhos?is_from_webapp=1&sender_device=pc" },
+  { name: "Feromonas", platform: "Twitch", game: "𝗠𝗶𝗻𝗲𝗰𝗿𝗮𝗳𝘁  𝗠𝗼𝗱𝘀", avatar: "https://static-cdn.jtvnw.net/jtv_user_pictures/dfb98a19-2543-4ee2-a676-8292f29d3498-profile_image-70x70.png", link: "https://www.twitch.tv/feromonas" },
+  { name: "Dream", platform: "YouTube", game: "𝗠𝗶𝗻𝗲𝗰𝗿𝗮𝗳𝘁 𝗦𝗠𝗣", avatar: "https://yt3.ggpht.com/In7JtEzLm2klae8nEa04D9OEYn_Sz8DUCEEs3lon3db0d2B7Ng4-jNRWv3C5hetujaqAj9mwBg=s176-c-k-c0x00ffffff-no-rj-mo", link: "https://www.youtube.com/@dream" },
+  { name: "GeorgeNotFound", platform: "YouTube", game: "𝗠𝗶𝗻𝗲𝗰𝗿𝗮𝗳𝘁 𝗦𝗠𝗣", avatar: "https://yt3.googleusercontent.com/ytc/AIdro_m1rQBE9mRK7nnv532ja0Djt3DazkS7PwoHlEuvexK81Qs=s176-c-k-c0x00ffffff-no-rj-mo", link: "https://www.youtube.com/@GeorgeNotFound" },
+  { name: "TommyInnit", platform: "Twitch", game: "𝗠𝗶𝗻𝗲𝗰𝗿𝗮𝗳𝘁 𝗦𝗠𝗣", avatar: "https://yt3.googleusercontent.com/ytc/AIdro_nKI4I6HlD1WXXXLig8UdltE92jpUSW6ng8P0cUUPUhKzw=s176-c-k-c0x00ffffff-no-rj-mo", link: "https://www.twitch.tv/tommyinnit" },
+  { name: "FitMC", platform: "YouTube", game: "𝟮𝗯𝟮𝘁 𝗔𝗻𝗮𝗿𝗰𝗵𝘆", avatar: "https://yt3.ggpht.com/f4O0l4jsK6dMTJD5ef32aGAhLu6ql4e4fT_AxxH59WICj11wPeI2ZHuGvI1F-ftvvS09VXA95A=s176-c-k-c0x00ffffff-no-rj-mo", link: "https://www.youtube.com/@FitMC" }
 ]
 
 export default function Streamers() {
@@ -50,7 +50,7 @@ export default function Streamers() {
         WebkitBackgroundClip: "text",
         WebkitTextFillColor: "transparent"
       }}>
-        STREAMERS HUB
+        𝗦𝗧𝗥𝗘𝗔𝗠𝗘𝗥𝗦
       </h1>
 
       {/* SEARCH */}
