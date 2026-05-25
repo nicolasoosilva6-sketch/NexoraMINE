@@ -24,33 +24,28 @@ export default function App() {
             style={logoImage}
           />
 
-          <h1 style={logoText}>
-            Nexora
-          </h1>
-
         </div>
 
-        {/* LINKS */}
-        <div style={navCenter}>
+ {/* LINKS */}
+<div style={navCenter}>
 
-          <Link to="/" style={navLink}>
-            Home
-          </Link>
+  <Link to="/" style={navLink}>
+    🏠 Inicio
+  </Link>
 
-          <Link to="/guides" style={navLink}>
-            Guias
-          </Link>
+  <Link to="/guides" style={navLink}>
+    📘 Guias
+  </Link>
 
-          <Link to="/servers" style={navLink}>
-            Servidores
-          </Link>
+  <Link to="/servers" style={navLink}>
+    🌐 Servidores
+  </Link>
 
-          <Link to="/streamers" style={navLink}>
-            Streamers
-          </Link>
+  <Link to="/streamers" style={navLink}>
+    🔴 Streamers
+  </Link>
 
-        </div>
-
+</div>
         {/* BUTTON */}
         <a
           href="https://www.twitch.tv/correiamb"
@@ -100,12 +95,12 @@ const navbar = {
 
   padding: "18px 50px",
 
-  background: "rgba(7,11,20,0.72)",
-  backdropFilter: "blur(14px)",
+  background: "rgba(7,11,20,0.6)",
+  backdropFilter: "blur(12px)",
 
-  borderBottom: "1px solid rgba(168,85,247,0.18)",
-
-  boxShadow: "0 0 30px rgba(168,85,247,0.10)"
+  border: "none",
+  boxShadow: "none",
+  outline: "none"
 }
 
 const logoContainer = {
@@ -135,27 +130,17 @@ const logoText = {
 const navCenter = {
   display: "flex",
   alignItems: "center",
-  gap: "18px",
-
-  background: "rgba(17,24,39,0.68)",
-  padding: "10px 18px",
-  borderRadius: "999px",
-
-  border: "1px solid rgba(168,85,247,0.18)",
-
-  boxShadow: "0 0 20px rgba(168,85,247,0.08)"
+  gap: "26px",
 }
 
 const navLink = {
-  color: "#e5e7eb",
+  color: "#ffffff",
   textDecoration: "none",
-  fontWeight: "700",
-  fontSize: "15px",
-
-  padding: "10px 18px",
-  borderRadius: "999px",
-
-  transition: "0.2s"
+  fontWeight: "600",
+  fontSize: "16px",
+  opacity: 0.85,
+  transition: "0.2s",
+  position: "relative",
 }
 
 const twitchBtn = {
@@ -170,3 +155,4 @@ const twitchBtn = {
 
   boxShadow: "0 0 25px rgba(168,85,247,0.28)"
 }
+
