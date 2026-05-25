@@ -1,3 +1,8 @@
+import obsLogo from "../assets/obs-logo.png"
+import growthLogo from "../assets/crescimento-logo.png"
+import minecraftLogo from "../assets/minecraft-logo.png"
+import designLogo from "../assets/design-logo.png"
+
 export default function Home() {
   return (
     <div style={page}>
@@ -79,7 +84,11 @@ export default function Home() {
 
           <div style={card}>
 
-            <div style={icon}>🎥</div>
+            <img
+              src={obsLogo}
+              alt=""
+              style={cardImage}
+            />
 
             <h2 style={cardTitle}>
               OBS Studio
@@ -94,7 +103,11 @@ export default function Home() {
 
           <div style={card}>
 
-            <div style={icon}>🚀</div>
+            <img
+              src={growthLogo}
+              alt=""
+              style={cardImage}
+            />
 
             <h2 style={cardTitle}>
               Crescimento
@@ -109,7 +122,11 @@ export default function Home() {
 
           <div style={card}>
 
-            <div style={icon}>🎮</div>
+            <img
+              src={minecraftLogo}
+              alt=""
+              style={cardImage}
+            />
 
             <h2 style={cardTitle}>
               Minecraft
@@ -215,7 +232,7 @@ export default function Home() {
           <div style={featureGrid}>
 
             <div style={featureCard}>
-              <span style={featureIcon}>🎥</span>
+              <img src={obsLogo} alt="" style={featureImage} />
 
               <div>
                 <h3 style={featureTitle}>
@@ -229,7 +246,7 @@ export default function Home() {
             </div>
 
             <div style={featureCard}>
-              <span style={featureIcon}>🚀</span>
+              <img src={growthLogo} alt="" style={featureImage} />
 
               <div>
                 <h3 style={featureTitle}>
@@ -243,7 +260,7 @@ export default function Home() {
             </div>
 
             <div style={featureCard}>
-              <span style={featureIcon}>🎮</span>
+              <img src={minecraftLogo} alt="" style={featureImage} />
 
               <div>
                 <h3 style={featureTitle}>
@@ -257,7 +274,11 @@ export default function Home() {
             </div>
 
             <div style={featureCard}>
-              <span style={featureIcon}>💜</span>
+              <img
+  src={designLogo}
+  alt=""
+  style={featureImage}
+/>
 
               <div>
                 <h3 style={featureTitle}>
@@ -498,8 +519,10 @@ const card = {
     "0 0 30px rgba(168,85,247,0.08)"
 }
 
-const icon = {
-  fontSize: "46px",
+const cardImage = {
+  width: "60px",
+  height: "60px",
+  objectFit: "contain",
   marginBottom: "22px"
 }
 
@@ -672,6 +695,12 @@ const featureCard = {
   border: "1px solid rgba(168,85,247,0.15)",
   borderRadius: "24px",
   padding: "24px"
+}
+
+const featureImage = {
+  width: "40px",
+  height: "40px",
+  objectFit: "contain"
 }
 
 const featureIcon = {

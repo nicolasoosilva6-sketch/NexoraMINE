@@ -20,6 +20,8 @@ import chatLogo from "../assets/chat-logo.png"
 
 import somLogo from "../assets/som-logo.png"
 import fonesLogo from "../assets/fones-logo.png"
+import mentalidadeLogo from "../assets/mentalidade-logo.png"
+import claqueteLogo from "../assets/claquete-logo.png"
 
 export default function Guides() {
   const [tab, setTab] = useState("platforms")
@@ -27,20 +29,33 @@ export default function Guides() {
   return (
     <div className="page">
 
-      {/* HERO */}
-      <div className="hero">
+{/* HERO */}
+<div className="hero">
 
-        <div className="heroGlow"></div>
+  <div className="heroGlow"></div>
 
-        <h1>
-          🎮 Streamer Control Panel
-        </h1>
+  <div className="heroTop">
 
-        <p>
-          Dashboard completo para streamers crescerem a sério
-        </p>
+    <img
+      src="/nexora2.png"
+      alt="Nexora"
+      className="heroLogo"
+    />
 
-      </div>
+<div className="heroText">
+
+  <h1>
+    Streamer Control Panel
+  </h1>
+
+  <p>
+    Dashboard completo para streamers crescerem a sério
+  </p>
+
+</div>
+  </div>
+
+</div>
 
       {/* TABS */}
       <div className="tabs">
@@ -286,42 +301,54 @@ export default function Guides() {
           </div>
         )}
 
-        {/* GROWTH */}
-        {tab === "growth" && (
-          <div className="grid">
+{/* GROWTH */}
+{tab === "growth" && (
+  <div className="grid">
 
-            <Card title="📈 Crescimento">
-              <Item>Streams consistentes</Item>
-              <Item>Horário fixo</Item>
-              <Item>Falar SEMPRE</Item>
-              <Item>Mesmo sem viewers</Item>
-              <Item>Comunidade Discord</Item>
-              <Item>Collabs ajudam muito</Item>
-              <Item>Ser reconhecível</Item>
-            </Card>
+    <Card
+      title="Crescimento"
+      icon={growthLogo}
+      iconSize={42}
+    >
+      <Item>Streams consistentes</Item>
+      <Item>Horário fixo</Item>
+      <Item>Falar SEMPRE</Item>
+      <Item>Mesmo sem viewers</Item>
+      <Item>Comunidade Discord</Item>
+      <Item>Collabs ajudam muito</Item>
+      <Item>Ser reconhecível</Item>
+    </Card>
 
-            <Card title="🎬 Conteúdo">
-              <Item>TikTok todos dias</Item>
-              <Item>Shorts YouTube</Item>
-              <Item>Clips engraçados</Item>
-              <Item>Momentos clutch</Item>
-              <Item>Highlights stream</Item>
-              <Item>Trending sounds</Item>
-              <Item>Conteúdo curto viraliza</Item>
-            </Card>
+    <Card
+      title="Conteúdo"
+      icon={claqueteLogo}
+      iconSize={72}
+    >
+      <Item>TikTok todos dias</Item>
+      <Item>Shorts YouTube</Item>
+      <Item>Clips engraçados</Item>
+      <Item>Momentos clutch</Item>
+      <Item>Highlights stream</Item>
+      <Item>Trending sounds</Item>
+      <Item>Conteúdo curto viraliza</Item>
+    </Card>
 
-            <Card title="💡 Mentalidade">
-              <Item>Não desistir cedo</Item>
-              <Item>Consistência ganha</Item>
-              <Item>Aprender sempre</Item>
-              <Item>Melhorar setup aos poucos</Item>
-              <Item>Comparar menos</Item>
-              <Item>Focar comunidade</Item>
-              <Item>Divertir enquanto streama</Item>
-            </Card>
+    <Card
+      title="Mentalidade"
+      icon={mentalidadeLogo}
+      iconSize={52}
+    >
+      <Item>Não desistir cedo</Item>
+      <Item>Consistência ganha</Item>
+      <Item>Aprender sempre</Item>
+      <Item>Melhorar setup aos poucos</Item>
+      <Item>Comparar menos</Item>
+      <Item>Focar comunidade</Item>
+      <Item>Divertir enquanto streama</Item>
+    </Card>
 
-          </div>
-        )}
+  </div>
+)}
 
       </div>
 
@@ -339,37 +366,50 @@ export default function Guides() {
           max-width:1150px;
           margin:auto;
           padding:35px;
-        }
+.heroGlow{
+  position:absolute;
+  width:300px;
+  height:300px;
+  background:#a855f7;
+  filter:blur(120px);
+  opacity:0.2;
+  top:-100px;
+  right:-100px;
+}
 
-        .hero{
-          position:relative;
-          overflow:hidden;
-          background:linear-gradient(135deg,#111827,#0f172a);
-          border:1px solid #1f2937;
-          padding:35px;
-          border-radius:24px;
-          margin-bottom:25px;
-        }
+.heroText{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
 
-        .heroGlow{
-          position:absolute;
-          width:300px;
-          height:300px;
-          background:#a855f7;
-          filter:blur(120px);
-          opacity:0.2;
-          top:-100px;
-          right:-100px;
-        }
+.heroTop{
+  display:flex;
+  align-items:flex-start;
+  gap:16px;
+  position:relative;
+  z-index:2;
+  margin-bottom:18px;
+}
 
-        .hero h1{
-          margin:0;
-          font-size:42px;
-          font-weight:900;
-          background:linear-gradient(90deg,#a855f7,#3b82f6);
-          -webkit-background-clip:text;
-          -webkit-text-fill-color:transparent;
-        }
+.heroLogo{
+  width:68px;
+  height:68px;
+  object-fit:contain;
+  filter:drop-shadow(0 0 12px rgba(168,85,247,0.35));
+  margin-top:-6px;
+  margin-left:10px;
+  flex-shrink:0;
+}
+
+.hero h1{
+  margin:0;
+  font-size:42px;
+  font-weight:900;
+  background:linear-gradient(90deg,#a855f7,#3b82f6);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
 
         .hero p{
           color:#9ca3af;
