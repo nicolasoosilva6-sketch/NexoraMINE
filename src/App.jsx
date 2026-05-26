@@ -5,6 +5,11 @@ import Guides from "./pages/Guides"
 import Servers from "./pages/Servers"
 import Streamers from "./pages/Streamers"
 
+import casaIcon from "./assets/casa.png"
+import livroIcon from "./assets/livro.png"
+import servidoresIcon from "./assets/servidores.png"
+import cameraIcon from "./assets/camera.png"
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -15,58 +20,120 @@ export default function App() {
       {/* NAVBAR */}
       <nav style={navbar}>
 
-        {/* LOGO */}
-        <div style={logoContainer}>
+        {/* CENTER */}
+        <div style={navCenter}>
 
-          <img
-            src="/nexora2.png"
-            alt="Nexora"
-            style={logoImage}
-          />
+          <Link to="/" style={navLink}>
+
+            <img
+              src={casaIcon}
+              alt=""
+              style={navIcon}
+            />
+
+            Início
+
+          </Link>
+
+          <Link to="/guides" style={navLink}>
+
+            <img
+              src={livroIcon}
+              alt=""
+              style={navIcon}
+            />
+
+            Guias
+
+          </Link>
+
+          <Link to="/servers" style={navLink}>
+
+            <img
+              src={servidoresIcon}
+              alt=""
+              style={navIcon}
+            />
+
+            Servidores
+
+          </Link>
+
+          <Link to="/streamers" style={navLink}>
+
+            <img
+              src={cameraIcon}
+              alt=""
+              style={navIcon}
+            />
+
+            Streamers
+
+          </Link>
 
         </div>
 
- {/* LINKS */}
-<div style={navCenter}>
+        {/* RIGHT */}
+        <div style={navRight}>
 
-  <Link to="/" style={navLink}>
-    🏠 Inicio
-  </Link>
+          <a
+            href="https://discord.gg/kdJdYqeA"
+            target="_blank"
+            rel="noreferrer"
+            style={iconBtn}
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg"
+              alt=""
+              style={iconImage}
+            />
+          </a>
 
-  <Link to="/guides" style={navLink}>
-    📘 Guias
-  </Link>
+          <a
+            href="https://twitch.tv/correiamb"
+            target="_blank"
+            rel="noreferrer"
+            style={iconBtn}
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitch.svg"
+              alt=""
+              style={iconImage}
+            />
+          </a>
 
-  <Link to="/servers" style={navLink}>
-    🌐 Servidores
-  </Link>
+          <img
+            src="/nexora2.png"
+            alt=""
+            style={profile}
+          />
 
-  <Link to="/streamers" style={navLink}>
-    🔴 Streamers
-  </Link>
-
-</div>
-        {/* BUTTON */}
-        <a
-          href="https://www.twitch.tv/correiamb"
-          target="_blank"
-          style={twitchBtn}
-        >
-          Twitch
-        </a>
+        </div>
 
       </nav>
 
       {/* PAGES */}
       <Routes>
 
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={<Home />}
+        />
 
-        <Route path="/guides" element={<Guides />} />
+        <Route
+          path="/guides"
+          element={<Guides />}
+        />
 
-        <Route path="/servers" element={<Servers />} />
+        <Route
+          path="/servers"
+          element={<Servers />}
+        />
 
-        <Route path="/streamers" element={<Streamers />} />
+        <Route
+          path="/streamers"
+          element={<Streamers />}
+        />
 
       </Routes>
 
@@ -90,69 +157,85 @@ const navbar = {
   zIndex: 999,
 
   display: "flex",
-  justifyContent: "space-between",
+  justifyContent: "center",
   alignItems: "center",
 
-  padding: "18px 50px",
+  padding: "18px 45px",
 
-  background: "rgba(7,11,20,0.6)",
+  background: "rgba(7,11,20,0.72)",
   backdropFilter: "blur(12px)",
 
-  border: "none",
-  boxShadow: "none",
-  outline: "none"
-}
-
-const logoContainer = {
-  display: "flex",
-  alignItems: "center",
-  gap: "14px"
-}
-
-const logoImage = {
-  width: "52px",
-  height: "52px",
-  objectFit: "contain",
-  filter:
-    "drop-shadow(0 0 18px rgba(168,85,247,0.45))"
-}
-
-const logoText = {
-  fontSize: "34px",
-  fontWeight: "900",
-  margin: 0,
-
-  background: "linear-gradient(90deg,#c084fc,#9333ea)",
-  WebkitBackgroundClip: "text",
-  WebkitTextFillColor: "transparent"
+  borderBottom: "1px solid rgba(255,255,255,0.05)"
 }
 
 const navCenter = {
   display: "flex",
   alignItems: "center",
-  gap: "26px",
+  gap: "30px"
+}
+
+const navRight = {
+  position: "absolute",
+  right: "45px",
+
+  display: "flex",
+  alignItems: "center",
+  gap: "15px"
 }
 
 const navLink = {
-  color: "#ffffff",
-  textDecoration: "none",
-  fontWeight: "600",
-  fontSize: "16px",
-  opacity: 0.85,
-  transition: "0.2s",
-  position: "relative",
-}
-
-const twitchBtn = {
-  background: "linear-gradient(90deg,#9333ea,#7e22ce)",
   color: "white",
-
-  padding: "13px 24px",
-  borderRadius: "16px",
-
   textDecoration: "none",
-  fontWeight: "800",
 
-  boxShadow: "0 0 25px rgba(168,85,247,0.28)"
+  fontWeight: "700",
+  fontSize: "15px",
+
+  display: "flex",
+  alignItems: "center",
+  gap: "10px",
+
+  transition: "0.2s",
+  opacity: 0.9
 }
 
+const navIcon = {
+  width: "18px",
+  height: "18px",
+  objectFit: "contain"
+}
+
+const iconBtn = {
+  width: "42px",
+  height: "42px",
+
+  borderRadius: "14px",
+
+  background: "rgba(17,24,39,.8)",
+
+  border: "1px solid rgba(255,255,255,.07)",
+
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+
+  textDecoration: "none"
+}
+
+const iconImage = {
+  width: "20px",
+  height: "20px",
+  filter: "brightness(0) invert(1)"
+}
+
+const profile = {
+  width: "44px",
+  height: "44px",
+
+  borderRadius: "14px",
+
+  objectFit: "cover",
+
+  border: "2px solid rgba(168,85,247,.35)",
+
+  boxShadow: "0 0 18px rgba(168,85,247,.22)"
+}

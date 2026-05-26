@@ -22,6 +22,7 @@ import somLogo from "../assets/som-logo.png"
 import fonesLogo from "../assets/fones-logo.png"
 import mentalidadeLogo from "../assets/mentalidade-logo.png"
 import claqueteLogo from "../assets/claquete-logo.png"
+import Livro from "../assets/livro.png"
 
 export default function Guides() {
   const [tab, setTab] = useState("platforms")
@@ -37,10 +38,10 @@ export default function Guides() {
   <div className="heroTop">
 
     <img
-      src="/nexora2.png"
-      alt="Nexora"
-      className="heroLogo"
-    />
+  src={Livro}
+  alt="Livro"
+  className="heroLogo"
+/>
 
 <div className="heroText">
 
@@ -363,18 +364,21 @@ export default function Guides() {
         }
 
         .page{
-          max-width:1150px;
-          margin:auto;
-          padding:35px;
+  max-width:1150px;
+  margin:auto;
+  padding:35px;
+}
+
 .heroGlow{
   position:absolute;
-  width:300px;
-  height:300px;
-  background:#a855f7;
-  filter:blur(120px);
-  opacity:0.2;
-  top:-100px;
-  right:-100px;
+  width:320px;
+  height:320px;
+  background:rgba(96,165,250,0.55);
+  filter:blur(130px);
+  opacity:0.35;
+  top:-120px;
+  right:-120px;
+  border-radius:50%;
 }
 
 .heroText{
@@ -393,20 +397,19 @@ export default function Guides() {
 }
 
 .heroLogo{
-  width:68px;
-  height:68px;
+  width:82px;
+  height:82px;
   object-fit:contain;
-  filter:drop-shadow(0 0 12px rgba(168,85,247,0.35));
-  margin-top:-6px;
-  margin-left:10px;
-  flex-shrink:0;
+  border-radius:0;
+  background:transparent;
+  filter:drop-shadow(0 0 18px rgba(59,130,246,.35));
 }
 
 .hero h1{
   margin:0;
   font-size:42px;
   font-weight:900;
-  background:linear-gradient(90deg,#a855f7,#3b82f6);
+  background:linear-gradient(90deg,#ffffff,#60a5fa);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
@@ -440,13 +443,13 @@ export default function Guides() {
 
         .tab:hover{
           transform:translateY(-3px);
-          border-color:#a855f7;
-          box-shadow:0 0 20px rgba(168,85,247,0.3);
+          border-color:#3b82f6;
+          box-shadow:0 0 20px rgba(59,130,246,0.3);
         }
 
         .activeTab{
-          background:#a855f7;
-          border-color:#a855f7;
+        background:#2563eb;
+        border-color:#60a5fa;
         }
 
         .tab img{

@@ -1,11 +1,15 @@
 import { useState } from "react"
+
 import minecraftLogo from "../assets/minecraft-logo.png"
+import cameraLogo from "../assets/camera.png"
 
 const platformIcons = {
   Twitch:
     "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitch.svg",
+
   YouTube:
     "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg",
+
   TikTok:
     "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg"
 }
@@ -27,25 +31,6 @@ const baseStreamers = [
     avatar:
       "https://static-cdn.jtvnw.net/jtv_user_pictures/cc5c2048-de71-4f54-9173-e383c705fa47-profile_image-70x70.png",
     link: "https://www.twitch.tv/cartaxo2720"
-  },
-
-  {
-    name: "Franciscop",
-    platform: "Twitch",
-    game: "𝗠𝗶𝗻𝗲𝗰𝗿𝗮𝗳𝘁 𝗦𝘂𝗿𝘃𝗶𝘃𝗮𝗹",
-    avatar:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/7de856f0-fd01-4c93-b03a-00122a913bcf-profile_image-70x70.jpeg",
-    link: "https://www.twitch.tv/chicodascouves2212"
-  },
-
-  {
-    name: "Pato_Conselhos",
-    platform: "TikTok",
-    game: "𝗠𝗶𝗻𝗲𝗰𝗿𝗮𝗳𝘁 𝗦𝘂𝗿𝘃𝗶𝘃𝗮𝗹",
-    avatar:
-      "https://www.petz.com.br/blog/wp-content/uploads/2022/03/animais-que-botom-ovo-2.jpg",
-    link:
-      "https://www.tiktok.com/@patoconselhos?is_from_webapp=1&sender_device=pc"
   },
 
   {
@@ -95,8 +80,11 @@ const baseStreamers = [
 ]
 
 export default function Streamers() {
+
   const [streamers] = useState(baseStreamers)
+
   const [search, setSearch] = useState("")
+
   const [filter, setFilter] = useState("ALL")
 
   const filtered = streamers.filter(
@@ -106,7 +94,11 @@ export default function Streamers() {
   )
 
   return (
+
     <div className="page">
+
+      {/* BG */}
+      <div className="bgGlow"></div>
 
       {/* HERO */}
       <div className="hero">
@@ -116,17 +108,26 @@ export default function Streamers() {
         <div className="heroTop">
 
           <img
-            src="/nexora2.png"
+            src={cameraLogo}
             alt=""
             className="heroLogo"
           />
 
           <div>
-            <h1>STREAMERS</h1>
 
-            <p>
-              Descobre streamers de Minecraft, SMP, Survival e creators tugas.
+            <p className="mini">
+              STREAMERS
             </p>
+
+            <h1>
+              Minecraft Streamers
+            </h1>
+
+            <p className="subtitle">
+              Descobre streamers de Minecraft,
+              SMP, Survival e creators tugas.
+            </p>
+
           </div>
 
         </div>
@@ -135,54 +136,66 @@ export default function Streamers() {
 
       {/* SEARCH */}
       <div className="searchBox">
+
         <input
           placeholder="Pesquisar streamer..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
+
       </div>
 
-{/* FILTERS */}
-<div className="filters">
+      {/* FILTERS */}
+      <div className="filters">
 
-  {[
-    {
-      name: "ALL",
-      icon: minecraftLogo
-    },
-    {
-      name: "Twitch",
-      icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitch.svg"
-    },
-    {
-      name: "YouTube",
-      icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg"
-    },
-    {
-      name: "TikTok",
-      icon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg"
-    }
-  ].map((f) => (
+        {[
+          {
+            name: "ALL",
+            icon: minecraftLogo
+          },
 
-    <button
-      key={f.name}
-      onClick={() => setFilter(f.name)}
-      className={filter === f.name ? "activeFilter" : ""}
-    >
+          {
+            name: "Twitch",
+            icon:
+              "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitch.svg"
+          },
 
-      <img
-        src={f.icon}
-        alt=""
-        className={f.name === "ALL" ? "minecraftFilter" : ""}
-      />
+          {
+            name: "YouTube",
+            icon:
+              "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg"
+          },
 
-      {f.name}
+          {
+            name: "TikTok",
+            icon:
+              "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg"
+          }
 
-    </button>
+        ].map((f) => (
 
-  ))}
+          <button
+            key={f.name}
+            onClick={() => setFilter(f.name)}
+            className={
+              filter === f.name
+                ? "activeFilter"
+                : ""
+            }
+          >
 
-</div>
+            <img
+              src={f.icon}
+              alt=""
+            />
+
+            {f.name}
+
+          </button>
+
+        ))}
+
+      </div>
 
       {/* GRID */}
       <div className="grid">
@@ -199,42 +212,52 @@ export default function Streamers() {
 
             <div className="cardGlow"></div>
 
-            {/* RANK */}
-            <div className="rank">
-              #{i + 1}
+            {/* TOP */}
+            <div className="top">
+
+              <div className="left">
+
+                <div className="rank">
+                  #{i + 1}
+                </div>
+
+                <img
+                  src={s.avatar}
+                  alt=""
+                  className="avatar"
+                  onError={(e) => {
+                    e.target.src =
+                      `https://api.dicebear.com/7.x/bottts/svg?seed=${s.name}`
+                  }}
+                />
+
+              </div>
+
+              <div className="platform">
+
+                <img
+                  src={platformIcons[s.platform]}
+                  alt=""
+                />
+
+              </div>
+
             </div>
 
-            {/* AVATAR */}
-            <img
-              src={s.avatar}
-              alt=""
-              className="avatar"
-              onError={(e) => {
-                e.target.src =
-                  `https://api.dicebear.com/7.x/bottts/svg?seed=${s.name}`
-              }}
-            />
+            {/* CONTENT */}
+            <div className="content">
 
-            {/* INFO */}
-            <div className="info">
+              <h2>
+                {s.name}
+              </h2>
 
-              <h2>{s.name}</h2>
+              <p className="game">
+                {s.game}
+              </p>
 
-              <p>{s.game}</p>
-
-              <span>
-                OPEN CHANNEL →
-              </span>
-
-            </div>
-
-            {/* PLATFORM */}
-            <div className="platform">
-
-              <img
-                src={platformIcons[s.platform]}
-                alt=""
-              />
+              <button className="watchBtn">
+                OPEN CHANNEL
+              </button>
 
             </div>
 
@@ -249,69 +272,126 @@ export default function Streamers() {
 
         body{
           margin:0;
-          background:#070b17;
+          background:#070b14;
           color:white;
           font-family:Inter,system-ui;
         }
 
         .page{
+          position:relative;
           min-height:100vh;
-          max-width:1150px;
-          margin:auto;
-          padding:35px;
+          padding:40px;
+          overflow:hidden;
+        }
+
+        .bgGlow{
+          position:absolute;
+          width:700px;
+          height:700px;
+          background:rgba(59,130,246,.12);
+          filter:blur(160px);
+          top:-250px;
+          right:-250px;
+          border-radius:999px;
         }
 
         .hero{
           position:relative;
           overflow:hidden;
-          background:linear-gradient(135deg,#111827,#0f172a);
-          border:1px solid #1f2937;
-          border-radius:28px;
-          padding:38px;
-          margin-bottom:24px;
+
+          background:
+          linear-gradient(
+            135deg,
+            rgba(15,23,42,.92),
+            rgba(17,24,39,.85)
+          );
+
+          border:
+          1px solid rgba(59,130,246,.12);
+
+          border-radius:32px;
+
+          padding:40px;
+
+          margin-bottom:30px;
+
+          backdrop-filter:blur(12px);
         }
 
         .heroGlow{
           position:absolute;
-          width:350px;
-          height:350px;
-          background:#a855f7;
-          opacity:0.18;
+
+          width:420px;
+          height:420px;
+
+          background:rgba(59,130,246,.14);
+
           filter:blur(120px);
-          top:-120px;
-          right:-120px;
+
+          right:-140px;
+          top:-140px;
         }
 
         .heroTop{
           position:relative;
           z-index:2;
+
           display:flex;
           align-items:center;
-          gap:22px;
+          gap:24px;
         }
 
         .heroLogo{
-          width:82px;
-          height:82px;
-          object-fit:cover;
-          border-radius:50%;
-          box-shadow:0 0 22px rgba(168,85,247,.35);
+          width:90px;
+          height:90px;
+
+          object-fit:contain;
+
+          filter:
+          drop-shadow(
+            0 0 25px rgba(59,130,246,.35)
+          );
+        }
+
+        .mini{
+          color:#60a5fa;
+
+          font-weight:800;
+
+          letter-spacing:2px;
+
+          margin-bottom:10px;
+
+          font-size:14px;
         }
 
         .hero h1{
           margin:0;
-          font-size:48px;
+
+          font-size:62px;
           font-weight:900;
-          letter-spacing:2px;
-          background:linear-gradient(90deg,#a855f7,#3b82f6);
+
+          background:
+          linear-gradient(
+            90deg,
+            #ffffff,
+            #60a5fa
+          );
+
           -webkit-background-clip:text;
           -webkit-text-fill-color:transparent;
         }
 
-        .hero p{
-          margin-top:8px;
-          color:#9ca3af;
-          font-size:15px;
+        .subtitle{
+          color:#cbd5e1;
+
+          margin-top:12px;
+
+          max-width:700px;
+
+          line-height:1.7;
+
+          font-size:16px;
         }
 
         .searchBox{
@@ -320,95 +400,153 @@ export default function Streamers() {
 
         .searchBox input{
           width:100%;
-          padding:16px 18px;
+
+          padding:18px;
+
           border-radius:18px;
-          border:1px solid #1f2937;
-          background:#111827;
+
+          border:
+          1px solid rgba(59,130,246,.10);
+
+          background:
+          rgba(15,23,42,.75);
+
           color:white;
+
           outline:none;
+
           font-size:15px;
+
           box-sizing:border-box;
-          transition:.25s;
+
+          backdrop-filter:blur(10px);
         }
 
         .searchBox input:focus{
-          border-color:#a855f7;
-          box-shadow:0 0 20px rgba(168,85,247,.25);
+          border-color:#60a5fa;
+
+          box-shadow:
+          0 0 20px rgba(59,130,246,.18);
         }
 
         .filters{
           display:flex;
           gap:12px;
           flex-wrap:wrap;
-          margin-bottom:24px;
+          margin-bottom:28px;
         }
 
-.filters button{
-  background:#111827;
-  border:1px solid #1f2937;
-  color:white;
-  padding:12px 18px;
-  border-radius:14px;
-  cursor:pointer;
-  font-weight:700;
-  transition:.25s;
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
+        .filters button{
+          background:
+          rgba(15,23,42,.78);
 
-.filters button img{
-  width:18px;
-  height:18px;
-  object-fit:contain;
-}
+          border:
+          1px solid rgba(59,130,246,.10);
 
-.filters button:first-child img{
-  width:22px;
-  height:22px;
-  border-radius:6px;
-}
+          color:white;
+
+          padding:12px 18px;
+
+          border-radius:16px;
+
+          cursor:pointer;
+
+          font-weight:700;
+
+          transition:.25s;
+
+          display:flex;
+          align-items:center;
+          gap:10px;
+        }
+
+        .filters button:hover{
+          border-color:#60a5fa;
+
+          transform:translateY(-2px);
+        }
+
+        .filters button img{
+          width:18px;
+          height:18px;
+          object-fit:contain;
+        }
+
+        .filters button:first-child img{
+          width:22px;
+          height:22px;
+        }
 
         .activeFilter{
-          background:#a855f7 !important;
-          border-color:#a855f7 !important;
+          background:
+          linear-gradient(
+            90deg,
+            #2563eb,
+            #60a5fa
+          ) !important;
+
+          border-color:#60a5fa !important;
         }
 
         .grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(420px,1fr));
-  gap:18px;
-}
+          position:relative;
+          z-index:2;
+
+          display:grid;
+
+          grid-template-columns:
+          repeat(auto-fit,minmax(420px,1fr));
+
+          gap:28px;
+        }
 
         .card{
           position:relative;
           overflow:hidden;
-          background:#111827;
-          border:1px solid #1f2937;
-          border-radius:24px;
-          padding:22px;
-          display:flex;
-          align-items:center;
-          gap:18px;
+
+          background:
+          linear-gradient(
+            135deg,
+            rgba(15,23,42,.94),
+            rgba(17,24,39,.90)
+          );
+
+          border:
+          1px solid rgba(59,130,246,.10);
+
+          border-radius:30px;
+
+          padding:28px;
+
           text-decoration:none;
+
           transition:.28s;
+
+          backdrop-filter:blur(12px);
         }
 
         .card:hover{
-          transform:translateY(-5px);
-          border-color:#a855f7;
-          box-shadow:0 0 28px rgba(168,85,247,.22);
+          transform:translateY(-6px);
+
+          border-color:#60a5fa;
+
+          box-shadow:
+          0 0 30px rgba(59,130,246,.15);
         }
 
         .cardGlow{
           position:absolute;
           inset:0;
-          background:linear-gradient(
+
+          background:
+          linear-gradient(
             135deg,
-            rgba(168,85,247,.14),
+            rgba(59,130,246,.10),
             transparent
           );
+
           opacity:0;
+
           transition:.3s;
         }
 
@@ -416,64 +554,142 @@ export default function Streamers() {
           opacity:1;
         }
 
+        .top{
+          position:relative;
+          z-index:2;
+
+          display:flex;
+          justify-content:space-between;
+          align-items:center;
+
+          margin-bottom:26px;
+        }
+
+        .left{
+          display:flex;
+          align-items:center;
+          gap:16px;
+        }
+
         .rank{
-          min-width:44px;
-          height:44px;
-          border-radius:14px;
-          background:linear-gradient(135deg,#a855f7,#3b82f6);
+          width:48px;
+          height:48px;
+
+          border-radius:16px;
+
+          background:
+          linear-gradient(
+            135deg,
+            #2563eb,
+            #60a5fa
+          );
+
           display:flex;
           align-items:center;
           justify-content:center;
+
           font-weight:900;
-          font-size:14px;
-          box-shadow:0 0 18px rgba(168,85,247,.35);
-          z-index:2;
+
+          box-shadow:
+          0 0 18px rgba(59,130,246,.25);
         }
 
         .avatar{
-          width:72px;
-          height:72px;
+          width:82px;
+          height:82px;
+
           border-radius:50%;
+
           object-fit:cover;
-          border:2px solid #272f42;
-          z-index:2;
-        }
 
-        .info{
-          flex:1;
-          z-index:2;
-        }
-
-        .info h2{
-          margin:0;
-          font-size:21px;
-          font-weight:800;
-          color:white;
-        }
-
-        .info p{
-          margin:6px 0 10px;
-          color:#9ca3af;
-          font-size:13px;
-          letter-spacing:1px;
-        }
-
-        .info span{
-          color:#60a5fa;
-          font-size:13px;
-          font-weight:700;
+          border:
+          2px solid rgba(255,255,255,.06);
         }
 
         .platform{
-  min-width:30px;
-  width:30px;
-  height:30px;
+          width:52px;
+          height:52px;
+
+          border-radius:16px;
+
+          display:flex;
+          align-items:center;
+          justify-content:center;
+
+          background:
+          rgba(15,23,42,.75);
+
+          border:
+          1px solid rgba(59,130,246,.10);
+        }
 
         .platform img{
-  width:30px;
-  height:30px;
+          width:26px;
+          height:26px;
+        }
 
-        @media(max-width:700px){
+        .content{
+          position:relative;
+          z-index:2;
+        }
+
+        .content h2{
+          margin:0;
+
+          font-size:34px;
+          font-weight:900;
+
+          color:white;
+
+          word-break:break-word;
+        }
+
+        .game{
+          color:#60a5fa;
+
+          margin-top:10px;
+          margin-bottom:24px;
+
+          font-weight:700;
+
+          font-size:15px;
+        }
+
+        .watchBtn{
+          width:100%;
+
+          border:none;
+
+          padding:16px;
+
+          border-radius:18px;
+
+          font-weight:800;
+
+          font-size:15px;
+
+          cursor:pointer;
+
+          color:white;
+
+          background:
+          linear-gradient(
+            90deg,
+            #2563eb,
+            #60a5fa
+          );
+
+          transition:.25s;
+        }
+
+        .watchBtn:hover{
+          transform:scale(1.02);
+
+          box-shadow:
+          0 0 24px rgba(59,130,246,.28);
+        }
+
+        @media(max-width:800px){
 
           .heroTop{
             flex-direction:column;
@@ -481,16 +697,15 @@ export default function Streamers() {
           }
 
           .hero h1{
-            font-size:38px;
+            font-size:42px;
           }
 
-          .card{
-            flex-direction:column;
-            align-items:flex-start;
+          .grid{
+            grid-template-columns:1fr;
           }
 
-          .platform{
-            width:52px;
+          .page{
+            padding:20px;
           }
 
         }
@@ -498,5 +713,7 @@ export default function Streamers() {
       `}</style>
 
     </div>
+
   )
+
 }

@@ -11,8 +11,8 @@ html {
 }
 
 body {
-  background: #070b14;
-  color: white;
+  background: #eff6ff;
+  color: #0f172a;
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
 }
@@ -24,29 +24,30 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0f172a;
+  background: #dbeafe;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(#9333ea, #7e22ce);
+  background: linear-gradient(#7dd3fc, #38bdf8);
   border-radius: 999px;
 }
 
 /* SELECTION */
 
 ::selection {
-  background: #9333ea;
-  color: white;
+  background: #93c5fd;
+  color: #0f172a;
 }
 
 /* LINKS */
 
 a {
+  color: #0f172a;
   transition: 0.25s;
 }
 
 a:hover {
-  opacity: 0.9;
+  opacity: 0.92;
   transform: translateY(-2px);
 }
 
@@ -65,17 +66,17 @@ button:hover {
 /* GLASS */
 
 .glass {
-  background: rgba(17, 24, 39, 0.72);
+  background: rgba(219, 234, 254, 0.72);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(168, 85, 247, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.22);
 }
 
 /* NEON */
 
 .neon {
   box-shadow:
-    0 0 15px rgba(168,85,247,0.15),
-    0 0 40px rgba(168,85,247,0.08);
+    0 0 15px rgba(56, 189, 248, 0.18),
+    0 0 40px rgba(56, 189, 248, 0.10);
 }
 
 /* HOVER */
@@ -87,15 +88,15 @@ button:hover {
 .hover-glow:hover {
   transform: translateY(-6px);
   box-shadow:
-    0 0 25px rgba(168,85,247,0.22),
-    0 0 50px rgba(168,85,247,0.10);
+    0 0 25px rgba(56, 189, 248, 0.22),
+    0 0 50px rgba(56, 189, 248, 0.12);
 }
 
 /* BUTTON STYLE */
 
 .btn-primary {
-  background: linear-gradient(90deg,#9333ea,#7e22ce);
-  color: white;
+  background: linear-gradient(90deg,#7dd3fc,#38bdf8);
+  color: #0f172a;
   padding: 15px 24px;
   border-radius: 16px;
   font-weight: 800;
