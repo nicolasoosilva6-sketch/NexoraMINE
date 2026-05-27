@@ -1,4 +1,7 @@
+// Guides.jsx
+
 import { useState } from "react"
+import { Link } from "react-router-dom"
 
 import twitchLogo from "../assets/twitch-logo.png"
 import obsLogo from "../assets/obs-logo.png"
@@ -22,48 +25,89 @@ import somLogo from "../assets/som-logo.png"
 import fonesLogo from "../assets/fones-logo.png"
 import mentalidadeLogo from "../assets/mentalidade-logo.png"
 import claqueteLogo from "../assets/claquete-logo.png"
+
 import Livro from "../assets/livro.png"
 
 export default function Guides() {
+
   const [tab, setTab] = useState("platforms")
 
   return (
     <div className="page">
 
-{/* HERO */}
-<div className="hero">
+      {/* BACKGROUND */}
+      <div className="background"></div>
+      <div className="overlay"></div>
 
-  <div className="heroGlow"></div>
+      {/* NAVBAR */}
+      <nav className="navbar">
 
-  <div className="heroTop">
+<div className="navLinks">
 
-    <img
-  src={Livro}
-  alt="Livro"
-  className="heroLogo"
-/>
+  <Link to="/" className="navLink">
+    Home
+  </Link>
 
-<div className="heroText">
+  <Link to="/guides" className="navLink">
+    Guides
+  </Link>
 
-  <h1>
-    Streamer Control Panel
-  </h1>
+  <Link to="/streamers" className="navLink">
+    Streamers
+  </Link>
 
-  <p>
-    Dashboard completo para streamers crescerem a sério
-  </p>
+  <Link to="/about" className="navLink">
+    About Us
+  </Link>
 
 </div>
-  </div>
 
-</div>
+        <div className="topLogoWrap">
+
+          <img
+            src="/xyntra.gif"
+            alt=""
+            className="topLogo"
+          />
+
+        </div>
+
+      </nav>
+
+      {/* HERO */}
+      <div className="hero">
+
+        <div className="heroGlow"></div>
+
+        <div className="heroTop">
+
+          <img
+            src={Livro}
+            alt=""
+            className="heroLogo"
+          />
+
+          <div>
+
+            <h1>
+              Streamer Guides
+            </h1>
+
+            <p>
+              Guias completos para streamers crescerem a sério
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
 
       {/* TABS */}
       <div className="tabs">
 
         <Tab
           icon={twitchLogo}
-          type="twitch"
           label="Plataformas"
           active={tab === "platforms"}
           onClick={() => setTab("platforms")}
@@ -71,7 +115,6 @@ export default function Guides() {
 
         <Tab
           icon={obsLogo}
-          type="obs"
           label="OBS Setup"
           active={tab === "obs"}
           onClick={() => setTab("obs")}
@@ -79,7 +122,6 @@ export default function Guides() {
 
         <Tab
           icon={nightbotLogo}
-          type="nightbot"
           label="Bots"
           active={tab === "bots"}
           onClick={() => setTab("bots")}
@@ -87,7 +129,6 @@ export default function Guides() {
 
         <Tab
           icon={microphoneLogo}
-          type="mic"
           label="Áudio"
           active={tab === "audio"}
           onClick={() => setTab("audio")}
@@ -95,7 +136,6 @@ export default function Guides() {
 
         <Tab
           icon={growthLogo}
-          type="growth"
           label="Crescimento"
           active={tab === "growth"}
           onClick={() => setTab("growth")}
@@ -106,15 +146,10 @@ export default function Guides() {
       {/* PANEL */}
       <div className="panel">
 
-        {/* PLATFORMS */}
         {tab === "platforms" && (
           <div className="grid">
 
-            <Card
-              title="Twitch"
-              icon={twitchLogo}
-              iconSize={40}
-            >
+            <Card title="Twitch" icon={twitchLogo}>
               <Item>Melhor plataforma para gaming</Item>
               <Item>Raids ajudam crescimento</Item>
               <Item>Bits + subs monetização</Item>
@@ -124,11 +159,7 @@ export default function Guides() {
               <Item>Extensões personalizadas</Item>
             </Card>
 
-            <Card
-              title="YouTube Live"
-              icon={youtubeLogo}
-              iconSize={40}
-            >
+            <Card title="YouTube Live" icon={youtubeLogo}>
               <Item>Lives ficam gravadas</Item>
               <Item>SEO ajuda descoberta</Item>
               <Item>Integra vídeos + shorts</Item>
@@ -141,7 +172,6 @@ export default function Guides() {
             <Card
               title="Kick / TikTok"
               tripleIcons={[kickLogo, barraLogo, tiktokLogo]}
-              tripleSizes={[70, 20, 42]}
             >
               <Item>Kick paga melhor creators</Item>
               <Item>Menos concorrência</Item>
@@ -155,15 +185,10 @@ export default function Guides() {
           </div>
         )}
 
-        {/* OBS */}
         {tab === "obs" && (
           <div className="grid">
 
-            <Card
-              title="Video Setup"
-              icon={cameraLogo}
-              iconSize={42}
-            >
+            <Card title="Video Setup" icon={cameraLogo}>
               <Item>1080p 60fps recomendado</Item>
               <Item>NVENC melhor encoder</Item>
               <Item>Bitrate 6000+</Item>
@@ -173,11 +198,7 @@ export default function Guides() {
               <Item>Usar canvas 1920x1080</Item>
             </Card>
 
-            <Card
-              title="Scenes"
-              icon={monitorLogo}
-              iconSize={42}
-            >
+            <Card title="Scenes" icon={monitorLogo}>
               <Item>Starting Soon</Item>
               <Item>Gameplay Scene</Item>
               <Item>Just Chatting</Item>
@@ -187,11 +208,7 @@ export default function Guides() {
               <Item>Intermission</Item>
             </Card>
 
-            <Card
-              title="Performance"
-              icon={cpuLogo}
-              iconSize={42}
-            >
+            <Card title="Performance" icon={cpuLogo}>
               <Item>Fechar apps pesadas</Item>
               <Item>Não usar overlays excessivas</Item>
               <Item>Monitorizar CPU usage</Item>
@@ -204,15 +221,10 @@ export default function Guides() {
           </div>
         )}
 
-        {/* BOTS */}
         {tab === "bots" && (
           <div className="grid">
 
-            <Card
-              title="Bots"
-              icon={nightbotLogo}
-              iconSize={42}
-            >
+            <Card title="Bots" icon={nightbotLogo}>
               <Item>Nightbot simples</Item>
               <Item>StreamElements completo</Item>
               <Item>Moobot leve</Item>
@@ -222,11 +234,7 @@ export default function Guides() {
               <Item>Giveaways fáceis</Item>
             </Card>
 
-            <Card
-              title="Comandos"
-              icon={comandosLogo}
-              iconSize={42}
-            >
+            <Card title="Comandos" icon={comandosLogo}>
               <Item>!discord</Item>
               <Item>!sens</Item>
               <Item>!setup</Item>
@@ -236,11 +244,7 @@ export default function Guides() {
               <Item>!rank</Item>
             </Card>
 
-            <Card
-              title="Interação"
-              icon={chatLogo}
-              iconSize={42}
-            >
+            <Card title="Interação" icon={chatLogo}>
               <Item>Polls no chat</Item>
               <Item>Giveaways viewers</Item>
               <Item>Mensagens automáticas</Item>
@@ -253,15 +257,10 @@ export default function Guides() {
           </div>
         )}
 
-        {/* AUDIO */}
         {tab === "audio" && (
           <div className="grid">
 
-            <Card
-              title="Microfone"
-              icon={microphoneLogo}
-              iconSize={42}
-            >
+            <Card title="Microfone" icon={microphoneLogo}>
               <Item>Noise suppression</Item>
               <Item>Compressor ativo</Item>
               <Item>Noise gate configurado</Item>
@@ -271,11 +270,7 @@ export default function Guides() {
               <Item>Teste antes da live</Item>
             </Card>
 
-            <Card
-              title="Som"
-              icon={somLogo}
-              iconSize={42}
-            >
+            <Card title="Som" icon={somLogo}>
               <Item>Jogo mais baixo que voz</Item>
               <Item>Evitar clipping</Item>
               <Item>Música controlada</Item>
@@ -285,11 +280,7 @@ export default function Guides() {
               <Item>Monitorizar áudio live</Item>
             </Card>
 
-            <Card
-              title="Setup Ideal"
-              icon={fonesLogo}
-              iconSize={42}
-            >
+            <Card title="Setup Ideal" icon={fonesLogo}>
               <Item>Headphones fechados</Item>
               <Item>Mic cardioid</Item>
               <Item>Braço articulado</Item>
@@ -302,253 +293,282 @@ export default function Guides() {
           </div>
         )}
 
-{/* GROWTH */}
-{tab === "growth" && (
-  <div className="grid">
+        {tab === "growth" && (
+          <div className="grid">
 
-    <Card
-      title="Crescimento"
-      icon={growthLogo}
-      iconSize={42}
-    >
-      <Item>Streams consistentes</Item>
-      <Item>Horário fixo</Item>
-      <Item>Falar SEMPRE</Item>
-      <Item>Mesmo sem viewers</Item>
-      <Item>Comunidade Discord</Item>
-      <Item>Collabs ajudam muito</Item>
-      <Item>Ser reconhecível</Item>
-    </Card>
+            <Card title="Crescimento" icon={growthLogo}>
+              <Item>Streams consistentes</Item>
+              <Item>Horário fixo</Item>
+              <Item>Falar SEMPRE</Item>
+              <Item>Mesmo sem viewers</Item>
+              <Item>Comunidade Discord</Item>
+              <Item>Collabs ajudam muito</Item>
+              <Item>Ser reconhecível</Item>
+            </Card>
 
-    <Card
-      title="Conteúdo"
-      icon={claqueteLogo}
-      iconSize={72}
-    >
-      <Item>TikTok todos dias</Item>
-      <Item>Shorts YouTube</Item>
-      <Item>Clips engraçados</Item>
-      <Item>Momentos clutch</Item>
-      <Item>Highlights stream</Item>
-      <Item>Trending sounds</Item>
-      <Item>Conteúdo curto viraliza</Item>
-    </Card>
+            <Card title="Conteúdo" icon={claqueteLogo}>
+              <Item>TikTok todos dias</Item>
+              <Item>Shorts YouTube</Item>
+              <Item>Clips engraçados</Item>
+              <Item>Momentos clutch</Item>
+              <Item>Highlights stream</Item>
+              <Item>Trending sounds</Item>
+              <Item>Conteúdo curto viraliza</Item>
+            </Card>
 
-    <Card
-      title="Mentalidade"
-      icon={mentalidadeLogo}
-      iconSize={52}
-    >
-      <Item>Não desistir cedo</Item>
-      <Item>Consistência ganha</Item>
-      <Item>Aprender sempre</Item>
-      <Item>Melhorar setup aos poucos</Item>
-      <Item>Comparar menos</Item>
-      <Item>Focar comunidade</Item>
-      <Item>Divertir enquanto streama</Item>
-    </Card>
+            <Card title="Mentalidade" icon={mentalidadeLogo}>
+              <Item>Não desistir cedo</Item>
+              <Item>Consistência ganha</Item>
+              <Item>Aprender sempre</Item>
+              <Item>Melhorar setup aos poucos</Item>
+              <Item>Comparar menos</Item>
+              <Item>Focar comunidade</Item>
+              <Item>Divertir enquanto streama</Item>
+            </Card>
 
-  </div>
-)}
+          </div>
+        )}
 
       </div>
 
-      {/* CSS */}
       <style>{`
+
+        *{
+          box-sizing:border-box;
+        }
 
         body{
           margin:0;
-          background:#070b17;
-          color:white;
           font-family:Inter,system-ui;
+          color:white;
+          overflow-x:hidden;
         }
 
         .page{
-  max-width:1150px;
-  margin:auto;
-  padding:35px;
-}
+          min-height:100vh;
+          position:relative;
+          padding:140px 35px 40px;
+          max-width:1300px;
+          margin:auto;
+        }
 
-.heroGlow{
-  position:absolute;
-  width:320px;
-  height:320px;
-  background:rgba(96,165,250,0.55);
-  filter:blur(130px);
-  opacity:0.35;
-  top:-120px;
-  right:-120px;
-  border-radius:50%;
-}
+        .background{
+          position:fixed;
+          inset:0;
+          background-image:url('/ceu.png');
+          background-size:cover;
+          background-position:center;
+          background-repeat:no-repeat;
+          z-index:-3;
+          transform:scale(1.05);
+        }
 
-.heroText{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-}
+        .overlay{
+          position:fixed;
+          inset:0;
+          background:
+          linear-gradient(
+            to bottom,
+            rgba(0,0,0,.45),
+            rgba(7,11,23,.72)
+          );
+          z-index:-2;
+        }
 
-.heroTop{
-  display:flex;
-  align-items:flex-start;
-  gap:16px;
-  position:relative;
-  z-index:2;
-  margin-bottom:18px;
-}
+        .navbar{
+          width:100%;
+          height:100px;
+          position:fixed;
+          top:0;
+          left:0;
+          z-index:100;
+          display:flex;
+          align-items:center;
+          padding:0 60px;
+        }
 
-.heroLogo{
-  width:82px;
-  height:82px;
-  object-fit:contain;
-  border-radius:0;
-  background:transparent;
-  filter:drop-shadow(0 0 18px rgba(59,130,246,.35));
-}
+        .navLinks{
+          display:flex;
+          gap:40px;
+          align-items:center;
+        }
 
-.hero h1{
-  margin:0;
-  font-size:42px;
-  font-weight:900;
-  background:linear-gradient(90deg,#ffffff,#60a5fa);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
+        .navLink{
+          text-decoration:none;
+          color:#ffffff;
+          font-weight:600;
+          font-size:18px;
+          letter-spacing:.5px;
+        }
+
+        .topLogoWrap{
+          position:absolute;
+          left:50%;
+          top:12px;
+          transform:translateX(-50%);
+        }
+
+        .topLogo{
+          width:170px;
+          object-fit:contain;
+
+          filter:
+          drop-shadow(0 0 30px rgba(255,255,255,.45));
+        }
+
+        .hero{
+          position:relative;
+          overflow:hidden;
+
+          padding:35px;
+          border-radius:35px;
+          margin-bottom:30px;
+
+          background:rgba(17,24,39,.55);
+
+          border:1px solid rgba(255,255,255,.12);
+
+          backdrop-filter:blur(18px);
+        }
+
+        .heroGlow{
+          position:absolute;
+          width:350px;
+          height:350px;
+          background:rgba(96,165,250,0.45);
+          filter:blur(130px);
+          opacity:.4;
+          top:-120px;
+          right:-120px;
+          border-radius:50%;
+        }
+
+        .heroTop{
+          display:flex;
+          align-items:center;
+          gap:20px;
+          position:relative;
+          z-index:2;
+        }
+
+        .heroLogo{
+          width:90px;
+          height:90px;
+          object-fit:contain;
+        }
+
+        .hero h1{
+          margin:0;
+          font-size:50px;
+          font-weight:900;
+        }
 
         .hero p{
-          color:#9ca3af;
           margin-top:10px;
-          font-size:15px;
+          color:#d1d5db;
+          font-size:16px;
         }
 
         .tabs{
           display:flex;
-          gap:12px;
           flex-wrap:wrap;
-          margin-bottom:20px;
+          gap:12px;
+          margin-bottom:24px;
         }
 
         .tab{
           display:flex;
           align-items:center;
           gap:12px;
-          background:#111827;
-          border:1px solid #1f2937;
-          padding:12px 18px;
-          border-radius:14px;
-          cursor:pointer;
-          transition:0.25s;
-          color:white;
-          font-weight:600;
-        }
 
-        .tab:hover{
-          transform:translateY(-3px);
-          border-color:#3b82f6;
-          box-shadow:0 0 20px rgba(59,130,246,0.3);
+          padding:14px 18px;
+
+          border-radius:16px;
+
+          border:1px solid rgba(255,255,255,.10);
+
+          background:rgba(17,24,39,.7);
+
+          color:white;
+
+          font-weight:700;
+
+          cursor:pointer;
+
+          backdrop-filter:blur(10px);
         }
 
         .activeTab{
-        background:#2563eb;
-        border-color:#60a5fa;
-        }
-
-        .tab img{
-          object-fit:contain;
-        }
-
-        .tab.twitch img{
-          width:34px;
-          height:34px;
-        }
-
-        .tab.nightbot img{
-          width:36px;
-          height:36px;
-        }
-
-        .tab.obs img{
-          width:24px;
-          height:24px;
-        }
-
-        .tab.mic img{
-          width:24px;
-          height:24px;
-        }
-
-        .tab.growth img{
-          width:28px;
-          height:28px;
+          background:
+          linear-gradient(
+            135deg,
+            #2563eb,
+            #3b82f6
+          );
         }
 
         .panel{
-          background:#111827;
-          border:1px solid #1f2937;
-          padding:18px;
-          border-radius:24px;
+          background:rgba(17,24,39,.68);
+
+          border:1px solid rgba(255,255,255,.10);
+
+          border-radius:30px;
+
+          padding:22px;
+
+          backdrop-filter:blur(16px);
         }
 
         .grid{
           display:grid;
-          grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-          gap:14px;
+
+          grid-template-columns:
+          repeat(auto-fit,minmax(280px,1fr));
+
+          gap:18px;
         }
 
         .card{
-          background:#0b1220;
-          border:1px solid #1f2937;
-          border-radius:20px;
-          padding:18px;
-          transition:0.25s;
-          position:relative;
-          overflow:hidden;
-        }
+          background:rgba(11,18,32,.82);
 
-        .card::before{
-          content:'';
-          position:absolute;
-          inset:0;
-          background:linear-gradient(135deg,rgba(168,85,247,.12),transparent);
-          opacity:0;
-          transition:0.3s;
-        }
+          border:1px solid rgba(255,255,255,.08);
 
-        .card:hover::before{
-          opacity:1;
-        }
+          border-radius:26px;
 
-        .card:hover{
-          transform:translateY(-4px);
-          border-color:#3b82f6;
-          box-shadow:0 0 25px rgba(59,130,246,.15);
+          padding:22px;
+
+          backdrop-filter:blur(12px);
         }
 
         .cardHeader{
           display:flex;
           align-items:center;
-          gap:12px;
-          margin-bottom:14px;
+          gap:14px;
+
+          margin-bottom:18px;
+        }
+
+        .cardHeader h3{
+          margin:0;
+          font-size:20px;
         }
 
         .cardLogo{
+          width:40px;
+          height:40px;
           object-fit:contain;
         }
 
-        .card h3{
-          margin:0;
-          font-size:18px;
+        .triple{
+          display:flex;
+          align-items:center;
+          gap:4px;
         }
 
         .item{
-          color:#9ca3af;
-          margin:8px 0;
-          font-size:14px;
-          transition:0.2s;
-        }
-
-        .item:hover{
-          color:white;
-          transform:translateX(4px);
+          color:#d1d5db;
+          margin:10px 0;
+          font-size:15px;
         }
 
       `}</style>
@@ -557,15 +577,19 @@ export default function Guides() {
   )
 }
 
-/* COMPONENTS */
+function Tab({ label, active, onClick, icon }) {
 
-function Tab({ label, active, onClick, icon, type }) {
   return (
     <button
       onClick={onClick}
-      className={`tab ${active ? "activeTab" : ""} ${type}`}
+      className={`tab ${active ? "activeTab" : ""}`}
     >
-      <img src={icon} alt="" />
+      <img
+        src={icon}
+        alt=""
+        width="26"
+      />
+
       <span>{label}</span>
     </button>
   )
@@ -575,10 +599,9 @@ function Card({
   title,
   children,
   icon,
-  tripleIcons,
-  iconSize = 30,
-  tripleSizes = [30, 30, 30]
+  tripleIcons
 }) {
+
   return (
     <div className="card">
 
@@ -589,56 +612,15 @@ function Card({
             src={icon}
             alt=""
             className="cardLogo"
-            style={{
-              width: `${iconSize}px`,
-              height: `${iconSize}px`,
-              objectFit: "contain"
-            }}
           />
         )}
 
         {tripleIcons && (
-          <div
-            className="tripleLogos"
-            style={{
-              display: "flex",
-              alignItems: "center"
-            }}
-          >
+          <div className="triple">
 
-            <img
-              src={tripleIcons[0]}
-              alt=""
-              style={{
-                width: tripleSizes[0],
-                height: tripleSizes[0],
-                objectFit: "contain",
-                marginRight: "-8px"
-              }}
-            />
-
-            <img
-              src={tripleIcons[1]}
-              alt=""
-              style={{
-                width: tripleSizes[1],
-                height: tripleSizes[1],
-                objectFit: "contain",
-                marginLeft: "-8px",
-                marginRight: "-8px"
-              }}
-            />
-
-            <img
-              src={tripleIcons[2]}
-              alt=""
-              style={{
-                width: tripleSizes[2],
-                height: tripleSizes[2],
-                objectFit: "contain",
-                marginLeft: "7px"
-              }}
-            />
+            <img src={tripleIcons[0]} alt="" width="58" />
+            <img src={tripleIcons[1]} alt="" width="18" />
+            <img src={tripleIcons[2]} alt="" width="38" />
 
           </div>
         )}
@@ -654,6 +636,7 @@ function Card({
 }
 
 function Item({ children }) {
+
   return (
     <div className="item">
       • {children}

@@ -1,123 +1,14 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  position: relative;
-  background: #050816;
-  color: white;
-  font-family: Arial, sans-serif;
+  margin: 0;
   overflow-x: hidden;
 }
 
-/* 🌈 Fundo glow */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background:
-    radial-gradient(circle at top left, rgba(168,85,247,0.18), transparent 35%),
-    radial-gradient(circle at bottom right, rgba(59,130,246,0.18), transparent 35%);
-  z-index: -2;
-}
-
-/* 🔳 Grid moderno */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
-  z-index: -1;
-}
-
-/* ✨ Glass effect */
-.glass {
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,0.08);
-}
-
-/* 💜 Neon glow */
-.neon {
-  box-shadow:
-    0 0 10px rgba(168,85,247,0.4),
-    0 0 25px rgba(59,130,246,0.25);
-}
-
-/* ⬆️ Hover animation */
-.hover-glow {
-  transition: 0.25s ease;
-}
-
-.hover-glow:hover {
-  transform: translateY(-5px);
-}
-
-/* 🔘 Button moderno */
-.btn-primary {
-  background: linear-gradient(90deg,#7c3aed,#2563eb);
-  padding: 14px 28px;
-  border-radius: 16px;
-  border: none;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.btn-primary:hover {
-  transform: scale(1.05);
-}
-
-/* 🔗 Links */
-a {
-  color: white;
-  text-decoration: none;
-}
-
-/* 🧭 Scrollbar bonita */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #7c3aed;
-  border-radius: 999px;
-}
-
-/* 🎮 Entrada de cards */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* 🎮 Badge game animation */
-@keyframes pulseGame {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 0 0 rgba(168,85,247,0);
-  }
-  50% {
-    transform: scale(1.05);
-    box-shadow: 0 0 12px rgba(168,85,247,0.4);
-  }
-  100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 rgba(168,85,247,0);
-  }
+@keyframes bounce {
+  0% { transform: translateX(-50%) translateY(0px); }
+  50% { transform: translateX(-50%) translateY(10px); }
+  100% { transform: translateX(-50%) translateY(0px); }
 }

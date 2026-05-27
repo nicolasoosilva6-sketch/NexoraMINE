@@ -1,518 +1,447 @@
-import { useState } from "react"
+// Streamers.jsx
 
-import minecraftLogo from "../assets/minecraft-logo.png"
-import cameraLogo from "../assets/camera.png"
+import { Link } from "react-router-dom"
 
-const platformIcons = {
-  Twitch:
-    "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitch.svg",
+const streamers = [
 
-  YouTube:
-    "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg",
+   {
+  name: "Correia",
+  platform: "Twitch",
+  game: "Minecraft Survival",
+  avatar: "https://static-cdn.jtvnw.net/jtv_user_pictures/e78c7a30-e01c-40dd-a1ed-345f68c2cd19-profile_image-70x70.png",
+  url: "https://www.twitch.tv/correiamb"
+},
 
-  TikTok:
-    "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg"
-}
+{
+  name: "Pato Conselhos",
+  platform: "Twitch",
+  game: "Minecraft PvP",
+  avatar: "https://p16-common-sign.tiktokcdn-eu.com/tos-useast2a-avt-0068-euttp/ac12eac1f951b85536eb9f21b4852451~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=10399&refresh_token=1690dcf9&x-expires=1780088400&x-signature=G%2Fdt2%2Bw54sUCJwXp4n6bo4ND47o%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=useast2b",
+  url: "https://www.tiktok.com/@patoconselhos"
+},
 
-const baseStreamers = [
+{
+  name: "TSofio",
+  platform: "Twitch",
+  game: "Minecraft Events",
+  avatar: "https://static-cdn.jtvnw.net/jtv_user_pictures/ca843dc8-d6d9-45b3-a34f-c6a209d6a0ea-profile_image-70x70.jpeg",
+  url: "https://www.twitch.tv/tsofio"
+},
+
+{
+  name: "Cartaxo",
+  platform: "Twitch",
+  game: "Minecraft Survival",
+  avatar: "https://static-cdn.jtvnw.net/jtv_user_pictures/cc5c2048-de71-4f54-9173-e383c705fa47-profile_image-70x70.png",
+  url: "https://www.twitch.tv/cartaxo2720"
+},
+
+{
+  name: "Franciscop",
+  platform: "Twitch",
+  game: "Minecraft Hardcore",
+  avatar: "https://static-cdn.jtvnw.net/jtv_user_pictures/7de856f0-fd01-4c93-b03a-00122a913bcf-profile_image-70x70.jpeg",
+  url: "https://www.twitch.tv/chicodascouves2212"
+},
+
   {
-    name: "CorreiaMB",
+    name: "TommyInnit",
     platform: "Twitch",
-    game: "𝗠𝗶𝗻𝗲𝗰𝗿𝗮𝗳𝘁 𝗦𝘂𝗿𝘃𝗶𝘃𝗮𝗹",
-    avatar:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/e78c7a30-e01c-40dd-a1ed-345f68c2cd19-profile_image-70x70.png",
-    link: "https://www.twitch.tv/correiamb"
-  },
-
-  {
-    name: "Cartaxo",
-    platform: "Twitch",
-    game: "𝗠𝗶𝗻𝗲𝗰𝗿𝗮𝗳𝘁 𝗦𝘂𝗿𝘃𝗶𝘃𝗮𝗹",
-    avatar:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/cc5c2048-de71-4f54-9173-e383c705fa47-profile_image-70x70.png",
-    link: "https://www.twitch.tv/cartaxo2720"
-  },
-
-  {
-    name: "Feromonas",
-    platform: "Twitch",
-    game: "𝗠𝗶𝗻𝗲𝗰𝗿𝗮𝗳𝘁 𝗠𝗼𝗱𝘀",
-    avatar:
-      "https://static-cdn.jtvnw.net/jtv_user_pictures/dfb98a19-2543-4ee2-a676-8292f29d3498-profile_image-70x70.png",
-    link: "https://www.twitch.tv/feromonas"
+    game: "Minecraft Hardcore",
+    avatar: "https://static-cdn.jtvnw.net/jtv_user_pictures/48cb9093-a729-418e-ae3a-347c2b814ee6-profile_image-70x70.png",
+    url: "https://www.twitch.tv/tommyinnit"
   },
 
   {
     name: "Dream",
     platform: "YouTube",
-    game: "𝗠𝗶𝗻𝗲𝗰𝗿𝗮𝗳𝘁 𝗦𝗠𝗣",
-    avatar:
-      "https://yt3.ggpht.com/In7JtEzLm2klae8nEa04D9OEYn_Sz8DUCEEs3lon3db0d2B7Ng4-jNRWv3C5hetujaqAj9mwBg=s176-c-k-c0x00ffffff-no-rj-mo",
-    link: "https://www.youtube.com/@dream"
+    game: "Minecraft Speedrun",
+    avatar: "https://yt3.ggpht.com/In7JtEzLm2klae8nEa04D9OEYn_Sz8DUCEEs3lon3db0d2B7Ng4-jNRWv3C5hetujaqAj9mwBg=s176-c-k-c0x00ffffff-no-rj-mo",
+    url: "https://www.youtube.com/@dream"
+  },
+
+  {
+    name: "Sapnap",
+    platform: "Kick",
+    game: "Minecraft Events",
+    avatar: "https://files.kick.com/images/user/15733617/profile_image/conversion/1faf8084-515d-4ea5-a92c-dbd0b1639dad-fullsize.webp",
+    url: "https://kick.com/sapnap"
   },
 
   {
     name: "GeorgeNotFound",
-    platform: "YouTube",
-    game: "𝗠𝗶𝗻𝗲𝗰𝗿𝗮𝗳𝘁 𝗦𝗠𝗣",
-    avatar:
-      "https://yt3.googleusercontent.com/ytc/AIdro_m1rQBE9mRK7nnv532ja0Djt3DazkS7PwoHlEuvexK81Qs=s176-c-k-c0x00ffffff-no-rj-mo",
-    link: "https://www.youtube.com/@GeorgeNotFound"
-  },
-
-  {
-    name: "TommyInnit",
     platform: "Twitch",
-    game: "𝗠𝗶𝗻𝗲𝗰𝗿𝗮𝗳𝘁 𝗦𝗠𝗣",
-    avatar:
-      "https://yt3.googleusercontent.com/ytc/AIdro_nKI4I6HlD1WXXXLig8UdltE92jpUSW6ng8P0cUUPUhKzw=s176-c-k-c0x00ffffff-no-rj-mo",
-    link: "https://www.twitch.tv/tommyinnit"
+    game: "Minecraft Survival",
+    avatar: "https://static-cdn.jtvnw.net/jtv_user_pictures/ff238566-dc40-4849-8f80-8fbbcfaabbc9-profile_image-70x70.png",
+    url: "https://www.twitch.tv/georgenotfound"
   },
 
   {
-    name: "FitMC",
-    platform: "YouTube",
-    game: "𝟮𝗯𝟮𝘁 𝗔𝗻𝗮𝗿𝗰𝗵𝘆",
-    avatar:
-      "https://yt3.ggpht.com/f4O0l4jsK6dMTJD5ef32aGAhLu6ql4e4fT_AxxH59WICj11wPeI2ZHuGvI1F-ftvvS09VXA95A=s176-c-k-c0x00ffffff-no-rj-mo",
-    link: "https://www.youtube.com/@FitMC"
-  }
+    name: "Tubbo",
+    platform: "Twitch",
+    game: "Minecraft SMP",
+    avatar: "https://static-cdn.jtvnw.net/jtv_user_pictures/905af69a-4fd8-42c7-b842-bf4ee4d51b3b-profile_image-70x70.png",
+    url: "https://www.twitch.tv/tubbo"
+  },
+
+  {
+    name: "Purpled",
+    platform: "Twitch",
+    game: "Minecraft Bedwars",
+    avatar: "https://static-cdn.jtvnw.net/jtv_user_pictures/5bdb1998-3fe5-4cbb-b764-7accf7f2edc8-profile_image-70x70.png",
+    url: "https://www.twitch.tv/purpled"
+  },
+
+  {
+    name: "Feinberg",
+    platform: "Twitch",
+    game: "Minecraft Speedrun",
+    avatar: "https://static-cdn.jtvnw.net/jtv_user_pictures/e83ed501-170f-454a-969a-2ed1f02f229a-profile_image-70x70.png",
+    url: "https://www.twitch.tv/feinberg"
+  },
+
+  {
+    name: "Fruitberries",
+    platform: "Twitch",
+    game: "Minecraft PvP",
+    avatar: "https://static-cdn.jtvnw.net/jtv_user_pictures/4a1b51a9-0094-4cb8-bdf4-dba7c7e64dea-profile_image-70x70.png",
+    url: "https://www.twitch.tv/fruitberries"
+  },
+
+  {
+  name: "Illumina",
+  platform: "Twitch",
+  game: "Minecraft Speedrun",
+  avatar: "https://unavatar.io/twitch/illumina1337",
+  url: "https://www.twitch.tv/illumina1337"
+},
+
+{
+  name: "Quackity",
+  platform: "Twitch",
+  game: "Minecraft RP",
+  avatar: "https://unavatar.io/twitch/quackity",
+  url: "https://www.twitch.tv/quackity"
+},
+
+{
+  name: "Philza",
+  platform: "Twitch",
+  game: "Hardcore Minecraft",
+  avatar: "https://unavatar.io/twitch/philza",
+  url: "https://www.twitch.tv/philza"
+},
+
+{
+  name: "CaptainSparklez",
+  platform: "YouTube",
+  game: "Minecraft Modded",
+  avatar: "https://unavatar.io/youtube/@CaptainSparklez",
+  url: "https://www.youtube.com/@CaptainSparklez"
+},
+
+{
+  name: "Technoblade",
+  platform: "YouTube",
+  game: "Minecraft PvP",
+  avatar: "https://unavatar.io/youtube/@Technoblade",
+  url: "https://www.youtube.com/@Technoblade"
+},
+
+{
+  name: "SB737",
+  platform: "YouTube",
+  game: "Minecraft Hardcore",
+  avatar: "https://unavatar.io/youtube/@SB737",
+  url: "https://www.youtube.com/@SB737"
+},
+
+{
+  name: "ClownPierce",
+  platform: "YouTube",
+  game: "Minecraft PvP",
+  avatar: "https://unavatar.io/youtube/@ClownPierce",
+  url: "https://www.youtube.com/@ClownPierce"
+},
+
+{
+  name: "Couriway",
+  platform: "Twitch",
+  game: "Minecraft Speedrun",
+  avatar: "https://unavatar.io/twitch/couriway",
+  url: "https://www.twitch.tv/couriway"
+},
+
+{
+  name: "SmallAnt",
+  platform: "Twitch",
+  game: "Minecraft Challenges",
+  avatar: "https://unavatar.io/twitch/smallant",
+  url: "https://www.twitch.tv/smallant"
+},
+
+{
+  name: "Wallibear",
+  platform: "YouTube",
+  game: "Minecraft Bedwars",
+  avatar: "https://unavatar.io/youtube/@Wallibear",
+  url: "https://www.youtube.com/@Wallibear"
+},
+
+{
+  name: "Parrot",
+  platform: "YouTube",
+  game: "Minecraft SMP",
+  avatar: "https://unavatar.io/youtube/@Parrot",
+  url: "https://www.youtube.com/@Parrot"
+},
+
+{
+  name: "Wolfeei",
+  platform: "Twitch",
+  game: "Minecraft Events",
+  avatar: "https://unavatar.io/twitch/wolfeei",
+  url: "https://www.twitch.tv/wolfeei"
+}
 ]
 
 export default function Streamers() {
 
-  const [streamers] = useState(baseStreamers)
-
-  const [search, setSearch] = useState("")
-
-  const [filter, setFilter] = useState("ALL")
-
-  const filtered = streamers.filter(
-    (s) =>
-      (filter === "ALL" || s.platform === filter) &&
-      s.name.toLowerCase().includes(search.toLowerCase())
-  )
-
   return (
-
     <div className="page">
 
-      {/* BG */}
-      <div className="bgGlow"></div>
+      <div className="background"></div>
+      <div className="overlay"></div>
 
-      {/* HERO */}
-      <div className="hero">
+      {/* NAVBAR */}
 
-        <div className="heroGlow"></div>
+      <nav className="navbar">
 
-        <div className="heroTop">
+        <div className="navLinks">
+
+  <Link to="/" className="navLink">
+    Home
+  </Link>
+
+  <Link to="/guides" className="navLink">
+    Guides
+  </Link>
+
+  <Link to="/streamers" className="navLink">
+    Streamers
+  </Link>
+
+  <Link to="/about" className="navLink">
+    About Us
+  </Link>
+
+</div>
+
+        <div className="topLogoWrap">
 
           <img
-            src={cameraLogo}
+            src="/xyntra.gif"
             alt=""
-            className="heroLogo"
+            className="topLogo"
           />
-
-          <div>
-
-            <p className="mini">
-              STREAMERS
-            </p>
-
-            <h1>
-              Minecraft Streamers
-            </h1>
-
-            <p className="subtitle">
-              Descobre streamers de Minecraft,
-              SMP, Survival e creators tugas.
-            </p>
-
-          </div>
 
         </div>
 
-      </div>
+      </nav>
 
-      {/* SEARCH */}
-      <div className="searchBox">
+      {/* HERO */}
 
-        <input
-          placeholder="Pesquisar streamer..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
+      <section className="hero">
 
-      </div>
+        <div className="heroBox">
 
-      {/* FILTERS */}
-      <div className="filters">
+          <h1>
+            Minecraft Streamers
+          </h1>
 
-        {[
-          {
-            name: "ALL",
-            icon: minecraftLogo
-          },
+          <p>
+            Discover creators from Twitch, YouTube and Kick
+          </p>
 
-          {
-            name: "Twitch",
-            icon:
-              "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitch.svg"
-          },
+        </div>
 
-          {
-            name: "YouTube",
-            icon:
-              "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg"
-          },
+      </section>
 
-          {
-            name: "TikTok",
-            icon:
-              "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg"
-          }
+      {/* GRID */}
 
-        ].map((f) => (
+      <section className="streamersGrid">
 
-          <button
-            key={f.name}
-            onClick={() => setFilter(f.name)}
-            className={
-              filter === f.name
-                ? "activeFilter"
-                : ""
-            }
+        {streamers.map((streamer) => (
+
+          <a
+            key={streamer.name}
+            href={streamer.url}
+            target="_blank"
+            rel="noreferrer"
+            className="streamerCard"
           >
 
             <img
-              src={f.icon}
-              alt=""
+              src={streamer.avatar}
+              alt={streamer.name}
+              className="avatar"
             />
 
-            {f.name}
+            <h2>
+              {streamer.name}
+            </h2>
 
-          </button>
+            <span className="platform">
+              {streamer.platform}
+            </span>
 
-        ))}
-
-      </div>
-
-      {/* GRID */}
-      <div className="grid">
-
-        {filtered.map((s, i) => (
-
-          <a
-            key={i}
-            href={s.link}
-            target="_blank"
-            rel="noreferrer"
-            className="card"
-          >
-
-            <div className="cardGlow"></div>
-
-            {/* TOP */}
-            <div className="top">
-
-              <div className="left">
-
-                <div className="rank">
-                  #{i + 1}
-                </div>
-
-                <img
-                  src={s.avatar}
-                  alt=""
-                  className="avatar"
-                  onError={(e) => {
-                    e.target.src =
-                      `https://api.dicebear.com/7.x/bottts/svg?seed=${s.name}`
-                  }}
-                />
-
-              </div>
-
-              <div className="platform">
-
-                <img
-                  src={platformIcons[s.platform]}
-                  alt=""
-                />
-
-              </div>
-
-            </div>
-
-            {/* CONTENT */}
-            <div className="content">
-
-              <h2>
-                {s.name}
-              </h2>
-
-              <p className="game">
-                {s.game}
-              </p>
-
-              <button className="watchBtn">
-                OPEN CHANNEL
-              </button>
-
-            </div>
+            <p>
+              {streamer.game}
+            </p>
 
           </a>
 
         ))}
 
-      </div>
+      </section>
 
-      {/* CSS */}
       <style>{`
+
+        *{
+          box-sizing:border-box;
+        }
 
         body{
           margin:0;
-          background:#070b14;
-          color:white;
           font-family:Inter,system-ui;
+          overflow-x:hidden;
+          color:white;
         }
 
         .page{
-          position:relative;
           min-height:100vh;
-          padding:40px;
-          overflow:hidden;
-        }
-
-        .bgGlow{
-          position:absolute;
-          width:700px;
-          height:700px;
-          background:rgba(59,130,246,.12);
-          filter:blur(160px);
-          top:-250px;
-          right:-250px;
-          border-radius:999px;
-        }
-
-        .hero{
           position:relative;
-          overflow:hidden;
+          padding-bottom:60px;
+        }
 
+        .background{
+          position:fixed;
+          inset:0;
+          background-image:url('/ceu.png');
+          background-size:cover;
+          background-position:center;
+          background-repeat:no-repeat;
+          z-index:-3;
+          transform:scale(1.05);
+        }
+
+        .overlay{
+          position:fixed;
+          inset:0;
           background:
           linear-gradient(
-            135deg,
-            rgba(15,23,42,.92),
-            rgba(17,24,39,.85)
+            to bottom,
+            rgba(0,0,0,.45),
+            rgba(7,11,23,.82)
           );
-
-          border:
-          1px solid rgba(59,130,246,.12);
-
-          border-radius:32px;
-
-          padding:40px;
-
-          margin-bottom:30px;
-
-          backdrop-filter:blur(12px);
+          z-index:-2;
         }
 
-        .heroGlow{
-          position:absolute;
-
-          width:420px;
-          height:420px;
-
-          background:rgba(59,130,246,.14);
-
-          filter:blur(120px);
-
-          right:-140px;
-          top:-140px;
-        }
-
-        .heroTop{
-          position:relative;
-          z-index:2;
-
+        .navbar{
+          width:100%;
+          height:100px;
+          position:fixed;
+          top:0;
+          left:0;
+          z-index:100;
           display:flex;
           align-items:center;
-          gap:24px;
+          padding:0 60px;
         }
 
-        .heroLogo{
-          width:90px;
-          height:90px;
+        .navLinks{
+          display:flex;
+          gap:40px;
+          align-items:center;
+        }
 
+        .navLink{
+          text-decoration:none;
+          color:#ffffff;
+          font-weight:600;
+          font-size:18px;
+          letter-spacing:.5px;
+        }
+
+        .topLogoWrap{
+          position:absolute;
+          left:50%;
+          top:12px;
+          transform:translateX(-50%);
+        }
+
+        .topLogo{
+          width:170px;
           object-fit:contain;
 
           filter:
-          drop-shadow(
-            0 0 25px rgba(59,130,246,.35)
-          );
+          drop-shadow(0 0 30px rgba(255,255,255,.45));
         }
 
-        .mini{
-          color:#60a5fa;
-
-          font-weight:800;
-
-          letter-spacing:2px;
-
-          margin-bottom:10px;
-
-          font-size:14px;
-        }
-
-        .hero h1{
-          margin:0;
-
-          font-size:62px;
-          font-weight:900;
-
-          background:
-          linear-gradient(
-            90deg,
-            #ffffff,
-            #60a5fa
-          );
-
-          -webkit-background-clip:text;
-          -webkit-text-fill-color:transparent;
-        }
-
-        .subtitle{
-          color:#cbd5e1;
-
-          margin-top:12px;
-
-          max-width:700px;
-
-          line-height:1.7;
-
-          font-size:16px;
-        }
-
-        .searchBox{
-          margin-bottom:18px;
-        }
-
-        .searchBox input{
-          width:100%;
-
-          padding:18px;
-
-          border-radius:18px;
-
-          border:
-          1px solid rgba(59,130,246,.10);
-
-          background:
-          rgba(15,23,42,.75);
-
-          color:white;
-
-          outline:none;
-
-          font-size:15px;
-
-          box-sizing:border-box;
-
-          backdrop-filter:blur(10px);
-        }
-
-        .searchBox input:focus{
-          border-color:#60a5fa;
-
-          box-shadow:
-          0 0 20px rgba(59,130,246,.18);
-        }
-
-        .filters{
+        .hero{
+          padding-top:160px;
+          padding-bottom:70px;
           display:flex;
-          gap:12px;
-          flex-wrap:wrap;
-          margin-bottom:28px;
-        }
-
-        .filters button{
-          background:
-          rgba(15,23,42,.78);
-
-          border:
-          1px solid rgba(59,130,246,.10);
-
-          color:white;
-
-          padding:12px 18px;
-
-          border-radius:16px;
-
-          cursor:pointer;
-
-          font-weight:700;
-
-          transition:.25s;
-
-          display:flex;
+          justify-content:center;
           align-items:center;
-          gap:10px;
         }
 
-        .filters button:hover{
-          border-color:#60a5fa;
+        .heroBox{
+          width:90%;
+          max-width:1100px;
 
-          transform:translateY(-2px);
+          background:rgba(17,24,39,.55);
+
+          border:1px solid rgba(255,255,255,.12);
+
+          border-radius:35px;
+
+          padding:45px;
+
+          backdrop-filter:blur(18px);
+
+          text-align:center;
         }
 
-        .filters button img{
-          width:18px;
-          height:18px;
-          object-fit:contain;
+        .heroBox h1{
+          margin:0;
+          font-size:64px;
+          font-weight:900;
         }
 
-        .filters button:first-child img{
-          width:22px;
-          height:22px;
+        .heroBox p{
+          margin-top:15px;
+          color:#d1d5db;
+          font-size:18px;
         }
 
-        .activeFilter{
-          background:
-          linear-gradient(
-            90deg,
-            #2563eb,
-            #60a5fa
-          ) !important;
-
-          border-color:#60a5fa !important;
-        }
-
-        .grid{
-          position:relative;
-          z-index:2;
+        .streamersGrid{
+          width:90%;
+          max-width:1400px;
+          margin:auto;
 
           display:grid;
 
           grid-template-columns:
-          repeat(auto-fit,minmax(420px,1fr));
+          repeat(auto-fit,minmax(260px,1fr));
 
-          gap:28px;
+          gap:24px;
         }
 
-        .card{
-          position:relative;
-          overflow:hidden;
+        .streamerCard{
+          background:rgba(11,18,32,.82);
 
-          background:
-          linear-gradient(
-            135deg,
-            rgba(15,23,42,.94),
-            rgba(17,24,39,.90)
-          );
-
-          border:
-          1px solid rgba(59,130,246,.10);
+          border:1px solid rgba(255,255,255,.08);
 
           border-radius:30px;
 
@@ -520,200 +449,68 @@ export default function Streamers() {
 
           text-decoration:none;
 
-          transition:.28s;
-
-          backdrop-filter:blur(12px);
-        }
-
-        .card:hover{
-          transform:translateY(-6px);
-
-          border-color:#60a5fa;
-
-          box-shadow:
-          0 0 30px rgba(59,130,246,.15);
-        }
-
-        .cardGlow{
-          position:absolute;
-          inset:0;
-
-          background:
-          linear-gradient(
-            135deg,
-            rgba(59,130,246,.10),
-            transparent
-          );
-
-          opacity:0;
-
-          transition:.3s;
-        }
-
-        .card:hover .cardGlow{
-          opacity:1;
-        }
-
-        .top{
-          position:relative;
-          z-index:2;
-
-          display:flex;
-          justify-content:space-between;
-          align-items:center;
-
-          margin-bottom:26px;
-        }
-
-        .left{
-          display:flex;
-          align-items:center;
-          gap:16px;
-        }
-
-        .rank{
-          width:48px;
-          height:48px;
-
-          border-radius:16px;
-
-          background:
-          linear-gradient(
-            135deg,
-            #2563eb,
-            #60a5fa
-          );
-
-          display:flex;
-          align-items:center;
-          justify-content:center;
-
-          font-weight:900;
-
-          box-shadow:
-          0 0 18px rgba(59,130,246,.25);
-        }
-
-        .avatar{
-          width:82px;
-          height:82px;
-
-          border-radius:50%;
-
-          object-fit:cover;
-
-          border:
-          2px solid rgba(255,255,255,.06);
-        }
-
-        .platform{
-          width:52px;
-          height:52px;
-
-          border-radius:16px;
-
-          display:flex;
-          align-items:center;
-          justify-content:center;
-
-          background:
-          rgba(15,23,42,.75);
-
-          border:
-          1px solid rgba(59,130,246,.10);
-        }
-
-        .platform img{
-          width:26px;
-          height:26px;
-        }
-
-        .content{
-          position:relative;
-          z-index:2;
-        }
-
-        .content h2{
-          margin:0;
-
-          font-size:34px;
-          font-weight:900;
-
           color:white;
 
-          word-break:break-word;
-        }
+          text-align:center;
 
-        .game{
-          color:#60a5fa;
-
-          margin-top:10px;
-          margin-bottom:24px;
-
-          font-weight:700;
-
-          font-size:15px;
-        }
-
-        .watchBtn{
-          width:100%;
-
-          border:none;
-
-          padding:16px;
-
-          border-radius:18px;
-
-          font-weight:800;
-
-          font-size:15px;
-
-          cursor:pointer;
-
-          color:white;
-
-          background:
-          linear-gradient(
-            90deg,
-            #2563eb,
-            #60a5fa
-          );
+          backdrop-filter:blur(14px);
 
           transition:.25s;
         }
 
-        .watchBtn:hover{
-          transform:scale(1.02);
-
+        .streamerCard:hover{
+          transform:translateY(-8px);
+          border-color:#3b82f6;
           box-shadow:
-          0 0 24px rgba(59,130,246,.28);
+          0 0 30px rgba(59,130,246,.18);
         }
 
-        @media(max-width:800px){
+        .avatar{
+          width:130px;
+          height:130px;
+          border-radius:999px;
+          object-fit:cover;
 
-          .heroTop{
-            flex-direction:column;
-            text-align:center;
-          }
+          margin-bottom:22px;
 
-          .hero h1{
-            font-size:42px;
-          }
+          border:4px solid rgba(255,255,255,.12);
+        }
 
-          .grid{
-            grid-template-columns:1fr;
-          }
+        .streamerCard h2{
+          margin:0;
+          font-size:28px;
+          font-weight:800;
+        }
 
-          .page{
-            padding:20px;
-          }
+        .platform{
+          display:inline-block;
 
+          margin-top:10px;
+          margin-bottom:12px;
+
+          padding:8px 16px;
+
+          border-radius:999px;
+
+          background:
+          linear-gradient(
+            135deg,
+            #2563eb,
+            #3b82f6
+          );
+
+          font-size:14px;
+          font-weight:700;
+        }
+
+        .streamerCard p{
+          color:#d1d5db;
+          font-size:15px;
+          line-height:1.5;
         }
 
       `}</style>
 
     </div>
-
   )
-
 }
