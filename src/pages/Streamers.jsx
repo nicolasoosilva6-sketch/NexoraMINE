@@ -217,7 +217,7 @@ export default function Streamers() {
 
       <nav className="navbar">
 
-        <div className="navLinks">
+<div className="navLinks">
 
   <Link to="/" className="navLink">
     Home
@@ -234,6 +234,15 @@ export default function Streamers() {
   <Link to="/about" className="navLink">
     About Us
   </Link>
+
+  <a
+    href="https://discord.gg/z2nU9tfC"
+    target="_blank"
+    rel="noreferrer"
+    className="discordBtn"
+  >
+    Discord
+  </a>
 
 </div>
 
@@ -347,47 +356,80 @@ export default function Streamers() {
           z-index:-2;
         }
 
-        .navbar{
-          width:100%;
-          height:100px;
-          position:fixed;
-          top:0;
-          left:0;
-          z-index:100;
-          display:flex;
-          align-items:center;
-          padding:0 60px;
-        }
+.navbar{
+  width:100%;
+  height:80px;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:100;
 
-        .navLinks{
-          display:flex;
-          gap:40px;
-          align-items:center;
-        }
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 
-        .navLink{
-          text-decoration:none;
-          color:#ffffff;
-          font-weight:600;
-          font-size:18px;
-          letter-spacing:.5px;
-        }
+  padding:0 40px;
+}
 
-        .topLogoWrap{
-          position:absolute;
-          left:50%;
-          top:12px;
-          transform:translateX(-50%);
-        }
+.navLinks{
+  display:flex;
+  gap:20px;
+  align-items:center;
+}
 
-        .topLogo{
-          width:170px;
-          object-fit:contain;
+.navLink{
+  color:white;
+  text-decoration:none;
+  font-weight:600;
 
-          filter:
-          drop-shadow(0 0 30px rgba(255,255,255,.45));
-        }
+  padding:8px 12px;
 
+  border-radius:10px;
+
+  background:rgba(255,255,255,0.06);
+
+  transition:.2s;
+}
+
+.navLink:hover{
+  background:rgba(255,255,255,0.12);
+}
+
+.topLogoWrap{
+  position:absolute;
+  right:40px;
+  top:50%;
+  transform:translateY(-50%);
+}
+
+.topLogo{
+  height:45px;
+  object-fit:contain;
+
+  filter:
+  drop-shadow(0 0 18px rgba(255,255,255,.35));
+}
+
+.discordBtn{
+  color:white;
+  text-decoration:none;
+  font-weight:700;
+
+  padding:8px 14px;
+
+  border-radius:12px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #5865F2,
+    #3b4bff
+  );
+
+  box-shadow:
+  0 0 20px rgba(88,101,242,.35);
+}
+  
         .hero{
           padding-top:160px;
           padding-bottom:70px;

@@ -11,16 +11,46 @@ export default function About() {
       {/* NAVBAR */}
       <nav className="navbar">
 
-        <div className="navLinks">
-          <Link to="/" className="navLink">Home</Link>
-          <Link to="/guides" className="navLink">Guides</Link>
-          <Link to="/streamers" className="navLink">Streamers</Link>
-          <Link to="/about" className="navLink">About Us</Link>
-        </div>
+ <nav className="navbar">
 
-        <div className="topLogoWrap">
-          <img src="/xyntra.gif" className="topLogo" alt="logo" />
-        </div>
+  <div className="navLinks">
+
+    <Link to="/" className="navLink">
+      Home
+    </Link>
+
+    <Link to="/guides" className="navLink">
+      Guides
+    </Link>
+
+    <Link to="/streamers" className="navLink">
+      Streamers
+    </Link>
+
+    <Link to="/about" className="navLink">
+      About Us
+    </Link>
+
+    <a
+      href="https://discord.gg/z2nU9tfC"
+      target="_blank"
+      rel="noreferrer"
+      className="discordBtn"
+    >
+      Discord
+    </a>
+
+  </div>
+
+  <div className="topLogoWrap">
+    <img
+      src="/xyntra.gif"
+      className="topLogo"
+      alt="logo"
+    />
+  </div>
+
+</nav>
 
       </nav>
 
@@ -157,38 +187,82 @@ export default function About() {
           z-index: -2;
         }
 
-        .navbar {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100px;
-          display: flex;
-          align-items: center;
-          padding: 0 60px;
-          z-index: 100;
-        }
+.navbar{
+  width:100%;
+  height:80px;
 
-        .navLinks {
-          display: flex;
-          gap: 35px;
-        }
+  position:fixed;
+  top:0;
+  left:0;
 
-        .navLink {
-          color: white;
-          text-decoration: none;
-          font-weight: 600;
-        }
+  z-index:100;
 
-        .topLogoWrap {
-          position: absolute;
-          left: 50%;
-          transform: translateX(-50%);
-        }
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 
-        .topLogo {
-          width: 160px;
-        }
+  padding:0 40px;
+}
+
+.navLinks{
+  display:flex;
+  gap:20px;
+  align-items:center;
+}
+
+.navLink{
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+
+  padding:8px 12px;
+
+  border-radius:10px;
+
+  background:rgba(255,255,255,0.06);
+
+  transition:.2s;
+}
+
+.navLink:hover{
+  background:rgba(255,255,255,0.12);
+}
+
+.discordBtn{
+  color:white;
+  text-decoration:none;
+  font-weight:700;
+
+  padding:8px 14px;
+
+  border-radius:12px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #5865F2,
+    #3b4bff
+  );
+
+  box-shadow:
+  0 0 20px rgba(88,101,242,.35);
+}
+
+.topLogoWrap{
+  position:absolute;
+  right:40px;
+  top:50%;
+
+  transform:translateY(-50%);
+}
+
+.topLogo{
+  height:45px;
+  object-fit:contain;
+
+  filter:
+  drop-shadow(0 0 18px rgba(255,255,255,.35));
+}
 
         .hero {
           display: flex;
